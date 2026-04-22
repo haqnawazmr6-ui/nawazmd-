@@ -38,7 +38,7 @@ const config = {
     OWNER_NAME: 'NAWAZ-MD',
     OWNER_NUMBER: '923067103522',
     DEV: '923067103522',
-    IK_IMAGE_PATH: './lib/jawadmd.jpg',
+    IK_IMAGE_PATH: './lib/nawaz.jpg',
     BOT_IMAGE: 'https://i.ibb.co/KCsk56v/IMG-20260422-WA0002.jpg',
     
     // Newsletter Configuration
