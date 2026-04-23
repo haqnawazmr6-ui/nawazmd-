@@ -28,7 +28,7 @@ const config = {
     ANTI_DELETE: 'false',
     STICKER_NAME: 'NAWAZ-MD',
     ANTI_LINK: 'true',
-    WELCOME: 'true',
+    WELCOME: 'false',
     ADMIN_ACTION: 'false',
     MODE: 'public',
     PREFIX: '.',
