@@ -1,7 +1,7 @@
 {
-  "name": "JAWAD-MD",
+  "name": "Nawaz-MD",
   "version": "1.4.0",
-  "description": "Jawad WhatsApp Bot",
+  "description": "Nawaz WhatsApp Bot",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
