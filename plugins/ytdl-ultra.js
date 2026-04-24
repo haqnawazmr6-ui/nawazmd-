@@ -1,4 +1,4 @@
-// ✅ Coded by JawadTechX for JAWAD MD
+// ✅ Coded by JawadTechX for NAWAZ MD
 // ⚙️ API: https://jawad-tech.vercel.app/download/ytdl?url=
 
 const { cmd } = require('../command');
