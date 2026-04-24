@@ -6,7 +6,7 @@ const config = {
     MONGODB_URL: process.env.MONGODB_URL || 'mongodb+srv://jawadmd:irfanmd@cluster0.cqcxhti.mongodb.net/?appName=Cluster0',
     
     // Database Name from process.env
-    DB_NAME: process.env.DB_NAME || 'jawadmd-x10',
+    DB_NAME: process.env.DB_NAME || 'nawazmd-x10',
     
     // Collections Configuration
     COLLECTIONS: {
@@ -74,7 +74,7 @@ const config = {
         WELCOME: 'false',
         ADMIN_ACTION: 'false',
         MODE: 'public',
-        PREFIX: ',',
+        PREFIX: '.',
         BOT_IMAGE: 'https://i.ibb.co/KCsk56v/IMG-20260422-WA0002.jpg',
         AUTO_LIKE_EMOJI: ['❤️', '💚', '🌚', '😍', '💀', '🧡', '💛', '💙', '👻', '🖤', '🤍', '🥀'],
         REACTXEMOJIS: ['❣️', '❤️', '🔥', '💌', '💝', '💛', '💞', '💚', '💛', '🖤', '❤️', '🤍', '☑️', '🥰', '💕', '🤩', '✨', '😎', '💙', '💝']
