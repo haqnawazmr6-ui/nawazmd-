@@ -6,7 +6,7 @@ const config = {
     MONGODB_URL: process.env.MONGODB_URL || 'mongodb+srv://jawadmd:irfanmd@cluster0.cqcxhti.mongodb.net/?appName=Cluster0',
     
     // Database Name from process.env
-    DB_NAME: process.env.DB_NAME || 'nawazmd-x10',
+    DB_NAME: process.env.DB_NAME || 'jawad-x10',
     
     // Collections Configuration
     COLLECTIONS: {
