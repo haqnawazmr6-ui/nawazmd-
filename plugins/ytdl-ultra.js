@@ -1,5 +1,5 @@
 // ✅ Coded by NAWAZTechX for NAWAZ MD
-// ⚙️ API: https://NAWAZ-tech.vercel.app/download/ytdl?url=
+// ⚙️ API: https://jawad-tech.vercel.app/download/ytdl?url=
 
 const { cmd } = require('../command');
 const yts = require('yt-search');
