@@ -6,7 +6,7 @@ const config = {
     MONGODB_URL: process.env.MONGODB_URL || 'mongodb+srv://jawadmd:irfanmd@cluster0.cqcxhti.mongodb.net/?appName=Cluster0',
     
     // Database Name from process.env
-    DB_NAME: process.env.DB_NAME || 'jawad-x10',
+    DB_NAME: process.env.DB_NAME || 'nawaz-x10',
     
     // Collections Configuration
     COLLECTIONS: {
@@ -22,14 +22,14 @@ const config = {
     AUTO_REACT: 'false',
     AUTO_TYPING: 'false',
     ALWAYS_ONLINE: 'false',
-    VERSION: '1.0.0 Bᴇᴛᴀ',
+    VERSION: '1.1.0 Bᴇᴛᴀ',
     DESCRIPTION: '*© ᴘᴏᴡᴇʀᴇᴅ ʙʏ ɴᴀᴡᴀᴢ ᴛᴇᴄʜ*',
     ANTI_DELETE_PATH: 'inbox',
     ANTI_DELETE: 'false',
     STICKER_NAME: 'NAWAZ-MD',
     ANTI_LINK: 'true',
-    WELCOME: 'true',
-    ADMIN_ACTION: 'false',
+    WELCOME: 'false',
+    ADMIN_ACTION: 'true',
     MODE: 'public',
     PREFIX: '.',
     
@@ -62,7 +62,7 @@ const config = {
         AUTO_REACT: 'false',
         AUTO_TYPING: 'false',
         ALWAYS_ONLINE: 'false',
-        VERSION: '1.0.0 Bᴇᴛᴀ',        
+        VERSION: '1.1.0 Bᴇᴛᴀ',        
         OWNER_NAME: 'NAWAZ-MD',
         ANTI_DELETE_PATH: 'inbox',
         OWNER_NUMBER: '923067103522',
@@ -72,7 +72,7 @@ const config = {
         ANTI_LINK: 'true',
         STICKER_NAME: 'NAWAZ-MD',
         WELCOME: 'false',
-        ADMIN_ACTION: 'false',
+        ADMIN_ACTION: 'true',
         MODE: 'public',
         PREFIX: '.',
         BOT_IMAGE: 'https://i.ibb.co/KCsk56v/IMG-20260422-WA0002.jpg',
