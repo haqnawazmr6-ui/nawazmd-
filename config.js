@@ -78,7 +78,7 @@ const config = {
         BOT_IMAGE: 'https://i.ibb.co/KCsk56v/IMG-20260422-WA0002.jpg',
         AUTO_LIKE_EMOJI: ['❤️', '💚', '🌚', '😍', '💀', '🧡', '💛', '💙', '👻', '🖤', '🤍', '🥀'],
         REACTXEMOJIS: ['❣️', '❤️', '🔥', '💌', '💝', '💛', '💞', '💚', '💛', '🖤', '❤️', '🤍', '☑️', '🥰', '💕', '🤩', '✨', '😎', '💙', '💝']
-    
+    }  // ← Added missing closing brace here
 };
 
 module.exports = config;
