@@ -34,7 +34,7 @@ cmd({
                 [item.type === 'video' ? 'video' : 'image']: { url: item.url },
                 caption: `📶 *Instagram Downloader*\n\n` +
         `- ❤‍🩹 *Quality*: HD\n\n` +
-        `> *© Powered by NAWAZ-MD*`
+        `> *© Powered by 𝐍𝆭𝛂𝆭Ꮿ𝆭𝛂ʑ̽-𝐌𝛛͎*`
             }, { quoted: mek });
         }
 
@@ -138,7 +138,7 @@ cmd({
                         `📹 *Type*: Video\n` +
                         `💾 *Size*: ${(item.size / 1024 / 1024).toFixed(2)} MB\n` +
                         `🎞️ *Format*: ${item.format}\n\n` +
-                        `> *© Powered by NAWAZ-MD*`
+                        `> *© Powered by 𝐍𝆭𝛂𝆭Ꮿ𝆭𝛂ʑ̽-𝐌𝛛͎*`
                 }, { quoted: mek });
             } else {
                 await conn.sendMessage(from, {
