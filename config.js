@@ -26,7 +26,7 @@ const config = {
     DESCRIPTION: '*© ᴘᴏᴡᴇʀᴇᴅ ʙʏ ɴᴀᴡᴀᴢ ᴛᴇᴄʜ*',
     ANTI_DELETE_PATH: 'inbox',
     ANTI_DELETE: 'false',
-    STICKER_NAME: 'NAWAZ-MD',
+    STICKER_NAME: '𝐍𝆭𝛂𝆭Ꮿ𝆭𝛂ʑ̽- 𝐌𝛛͎ ',
     ANTI_LINK: 'true',
     WELCOME: 'false',
     ADMIN_ACTION: 'true',
@@ -34,12 +34,12 @@ const config = {
     PREFIX: '.',
     
     // Bot Identity
-    BOT_NAME: 'NAWAZ-MD',
-    OWNER_NAME: 'NAWAZ-MD',
+    BOT_NAME: '𝐍𝆭𝛂𝆭Ꮿ𝆭𝛂ʑ̽ -𝐌𝛛͎ ',
+    OWNER_NAME: '𝐍𝆭𝛂𝆭Ꮿ𝆭𝛂ʑ̽- 𝐌𝛛͎ ',
     OWNER_NUMBER: '923067103522',
     DEV: '923067103522',
     IK_IMAGE_PATH: './lib/nawaz.jpg',
-    BOT_IMAGE: 'https://i.ibb.co/KCsk56v/IMG-20260422-WA0002.jpg',
+    BOT_IMAGE: 'https://files.catbox.moe/0jijco.jpg ',
     
     // Newsletter Configuration
     NEWSLETTER_JID: '120363402493709861@newsletter',
@@ -63,19 +63,19 @@ const config = {
         AUTO_TYPING: 'false',
         ALWAYS_ONLINE: 'false',
         VERSION: '1.1.0 Bᴇᴛᴀ',        
-        OWNER_NAME: 'NAWAZ-MD',
+        OWNER_NAME: '𝐍𝆭𝛂𝆭Ꮿ𝆭𝛂ʑ̽- 𝐌𝛛͎ ',
         ANTI_DELETE_PATH: 'inbox',
         OWNER_NUMBER: '923067103522',
         DEV: '923067103522',
         DESCRIPTION: '*© ᴘᴏᴡᴇʀᴇᴅ ʙʏ ɴᴀᴡᴀᴢ ᴛᴇᴄʜ*',
         ANTI_DELETE: 'true',
         ANTI_LINK: 'true',
-        STICKER_NAME: 'NAWAZ-MD',
+        STICKER_NAME: '𝐍𝆭𝛂𝆭Ꮿ𝆭𝛂ʑ̽-𝐌𝛛͎ ',
         WELCOME: 'false',
         ADMIN_ACTION: 'true',
         MODE: 'public',
         PREFIX: '.',
-        BOT_IMAGE: 'https://i.ibb.co/KCsk56v/IMG-20260422-WA0002.jpg',
+        BOT_IMAGE: 'https://files.catbox.moe/0jijco.jpg ',
         AUTO_LIKE_EMOJI: ['❤️', '💚', '🌚', '😍', '💀', '🧡', '💛', '💙', '👻', '🖤', '🤍', '🥀'],
         REACTXEMOJIS: ['❣️', '❤️', '🔥', '💌', '💝', '💛', '💞', '💚', '💛', '🖤', '❤️', '🤍', '☑️', '🥰', '💕', '🤩', '✨', '😎', '💙', '💝']
     }  // ← Added missing closing brace here
