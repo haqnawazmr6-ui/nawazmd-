@@ -26,20 +26,20 @@ const config = {
     DESCRIPTION: '*© ᴘᴏᴡᴇʀᴇᴅ ʙʏ ɴᴀᴡᴀᴢ ᴛᴇᴄʜ*',
     ANTI_DELETE_PATH: 'inbox',
     ANTI_DELETE: 'false',
-    STICKER_NAME: '𝐍𝆭𝛂𝆭Ꮿ𝆭𝛂ʑ̽-𝐌𝛛͎ ',
+    STICKER_NAME: '𝐍𝆭𝛂𝆭Ꮿ𝆭𝛂ʑ̽- 𝐌𝛛͎ ',
     ANTI_LINK: 'true',
-    WELCOME: 'false',
+    WELCOME: 'true',
     ADMIN_ACTION: 'true',
     MODE: 'public',
     PREFIX: '.',
     
     // Bot Identity
-    BOT_NAME: '𝐍𝆭𝛂𝆭Ꮿ𝆭𝛂ʑ̽-𝐌𝛛͎ ',
-    OWNER_NAME: '𝐍𝆭𝛂𝆭Ꮿ𝆭𝛂ʑ̽-𝐌𝛛͎ ',
+    BOT_NAME: 'NAWAZ-MD free bot',
+    OWNER_NAME: '𝐍𝆭𝛂𝆭Ꮿ𝆭𝛂ʑ̽- 𝐌𝛛͎ ',
     OWNER_NUMBER: '923067103522',
     DEV: '923067103522',
     IK_IMAGE_PATH: './lib/nawaz.jpg',
-    BOT_IMAGE: ' https://files.catbox.moe/0jijco.jpg ',
+    BOT_IMAGE: 'https://files.catbox.moe/0jijco.jpg ',
     
     // Newsletter Configuration
     NEWSLETTER_JID: '120363402493709861@newsletter',
@@ -63,7 +63,7 @@ const config = {
         AUTO_TYPING: 'false',
         ALWAYS_ONLINE: 'false',
         VERSION: '1.1.0 Bᴇᴛᴀ',        
-        OWNER_NAME: '𝐍𝆭𝛂𝆭Ꮿ𝆭𝛂ʑ̽-𝐌𝛛͎ ',
+        OWNER_NAME: '𝐍𝆭𝛂𝆭Ꮿ𝆭𝛂ʑ̽- 𝐌𝛛͎ ',
         ANTI_DELETE_PATH: 'inbox',
         OWNER_NUMBER: '923067103522',
         DEV: '923067103522',
@@ -71,11 +71,11 @@ const config = {
         ANTI_DELETE: 'true',
         ANTI_LINK: 'true',
         STICKER_NAME: '𝐍𝆭𝛂𝆭Ꮿ𝆭𝛂ʑ̽-𝐌𝛛͎ ',
-        WELCOME: 'false',
+        WELCOME: 'true',
         ADMIN_ACTION: 'true',
         MODE: 'public',
         PREFIX: '.',
-        BOT_IMAGE: ' https://files.catbox.moe/0jijco.jpg ',
+        BOT_IMAGE: 'https://files.catbox.moe/0jijco.jpg ',
         AUTO_LIKE_EMOJI: ['❤️', '💚', '🌚', '😍', '💀', '🧡', '💛', '💙', '👻', '🖤', '🤍', '🥀'],
         REACTXEMOJIS: ['❣️', '❤️', '🔥', '💌', '💝', '💛', '💞', '💚', '💛', '🖤', '❤️', '🤍', '☑️', '🥰', '💕', '🤩', '✨', '😎', '💙', '💝']
     }  // ← Added missing closing brace here
