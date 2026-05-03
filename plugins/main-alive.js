@@ -38,7 +38,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
         const uptime = formatUptime(process.uptime());
 
         // Simple status message with only uptime
-        const status = `🤖 Bot is alive since: *${uptime}*`;
+        const status = `🤖 Bot pawer by NAWAZ-MD: *${uptime}*`;
 
         await conn.sendMessage(from, { 
             text: status,
