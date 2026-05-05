@@ -105,7 +105,7 @@ ${menuSections}
         await new Promise(r => setTimeout(r, 1500));
 
         // ✅ 2. SEND AUDIO (100% working method)
-        const audioBuffer = await axios.get("https://files.catbox.moe/ay0es0", {
+        const audioBuffer = await axios.get("https://files.catbox.moe/xvwfu4", {
             responseType: "arraybuffer"
         });
 
