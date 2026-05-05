@@ -13,7 +13,7 @@ cmd({
     // Get values from userConfig with fallback to config
     const OWNER_NUMBER = userConfig?.OWNER_NUMBER || config.OWNER_NUMBER || "0000000000";
     const OWNER_NAME = userConfig?.OWNER_NAME || config.OWNER_NAME || "Bot Owner";
-    const TEAM_NAME = "NAWAZ-MD TEAM"; // Direct hardcoded as requested
+    const TEAM_NAME = "ռᥲшᥲչⴅժ TEAM"; // Direct hardcoded as requested
 
     await sock.sendPresenceUpdate("composing", from);
 
