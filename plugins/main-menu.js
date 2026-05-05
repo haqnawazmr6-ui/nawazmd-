@@ -6,42 +6,37 @@ const fs = require('fs');
 const {runtime} = require('../lib/functions')
 const axios = require('axios')
 
-// Helper function for small caps text
+// Small caps
 const toSmallCaps = (text) => {
     if (!text || typeof text !== 'string') return '';
-    const smallCapsMap = {
-        'a': 'ᴀ','b': 'ʙ','c': 'ᴄ','d': 'ᴅ','e': 'ᴇ','f': 'ғ','g': 'ɢ','h': 'ʜ','i': 'ɪ',
-        'j': 'ᴊ','k': 'ᴋ','l': 'ʟ','m': 'ᴍ','n': 'ɴ','o': 'ᴏ','p': 'ᴘ','q': 'ǫ','r': 'ʀ',
-        's': 's','t': 'ᴛ','u': 'ᴜ','v': 'ᴠ','w': 'ᴡ','x': 'x','y': 'ʏ','z': 'ᴢ',
-        'A': 'ᴀ','B': 'ʙ','C': 'ᴄ','D': 'ᴅ','E': 'ᴇ','F': 'ғ','G': 'ɢ','H': 'ʜ','I': 'ɪ',
-        'J': 'ᴊ','K': 'ᴋ','L': 'ʟ','M': 'ᴍ','N': 'ɴ','O': 'ᴏ','P': 'ᴘ','Q': 'ǫ','R': 'ʀ',
-        'S': 's','T': 'ᴛ','U': 'ᴜ','V': 'ᴠ','W': 'ᴡ','X': 'x','Y': 'ʏ','Z': 'ᴢ'
+    const map = {
+        'a':'ᴀ','b':'ʙ','c':'ᴄ','d':'ᴅ','e':'ᴇ','f':'ғ','g':'ɢ','h':'ʜ','i':'ɪ',
+        'j':'ᴊ','k':'ᴋ','l':'ʟ','m':'ᴍ','n':'ɴ','o':'ᴏ','p':'ᴘ','q':'ǫ','r':'ʀ',
+        's':'s','t':'ᴛ','u':'ᴜ','v':'ᴠ','w':'ᴡ','x':'x','y':'ʏ','z':'ᴢ'
     };
-    return text.split('').map(char => smallCapsMap[char] || char).join('');
+    return text.split('').map(c => map[c] || c).join('');
 };
 
+// Format category
 const formatCategory = (category, cmds) => {
-    const validCmds = cmds.filter(cmd => cmd.pattern && cmd.pattern.trim() !== '');
-    if (validCmds.length === 0) return '';
+    const valid = cmds.filter(cmd => cmd.pattern);
+    if (!valid.length) return '';
     
-    let title = `\n\n╭──❲ *${category.toUpperCase()}* ❳───┈⊰\n`;
-    let body = validCmds.map(cmd => {
-        return `│  ○  ${toSmallCaps(cmd.pattern)}`;
-    }).join('\n');
-    let footer = `\n╰─────────────┈⊰`;
-    return `${title}${body}${footer}`;
+    return `\n\n╭──❲ *${category.toUpperCase()}* ❳───┈⊰\n` +
+    valid.map(c => `│ ○ ${toSmallCaps(c.pattern)}`).join('\n') +
+    `\n╰─────────────┈⊰`;
 };
 
+// Check image url
 const isValidImageUrl = (url) => {
-    if (!url || typeof url !== 'string') return false;
-    const imageExtensions = ['.jpg','.jpeg','.png','.gif','.webp'];
-    return imageExtensions.some(ext => url.toLowerCase().endsWith(ext));
+    if (!url) return false;
+    return ['.jpg','.jpeg','.png','.webp'].some(ext => url.toLowerCase().endsWith(ext));
 };
 
 cmd({
     pattern: "menu",
     alias: ["m","help","allmenu","fullmenu"],
-    desc: "Show all bot commands",
+    desc: "Show all commands",
     category: "main",
     react: "⚡",
     filename: __filename
@@ -53,12 +48,12 @@ async (conn, mek, m, { from, pushname, reply, userConfig }) => {
 
         let totalCommands = Object.keys(commands).length;
 
-        const categories = [...new Set(Object.values(commands).map(c => c.category))].filter(c => c);
-        
+        const categories = [...new Set(Object.values(commands).map(c => c.category))].filter(Boolean);
+
         const categorized = {};
         categories.forEach(cat => {
             const valid = Object.values(commands).filter(c => c.category === cat && c.pattern);
-            if (valid.length > 0) categorized[cat] = valid;
+            if (valid.length) categorized[cat] = valid;
         });
 
         let menuSections = '';
@@ -74,6 +69,9 @@ async (conn, mek, m, { from, pushname, reply, userConfig }) => {
         const DESCRIPTION = userConfig?.DESCRIPTION || config.DESCRIPTION || "";
 
         const BOT_IMAGE = userConfig?.BOT_IMAGE || config.BOT_IMAGE;
+        const localImage = path.join(__dirname, '../lib/nawaz.jpg');
+
+        let imageToUse = isValidImageUrl(BOT_IMAGE) ? BOT_IMAGE : localImage;
 
         let dec = `╭━━━〔 *${BOT_NAME}* 〕━━━┈⊰
 ┃ ✦ Owner : ${OWNER_NAME}
@@ -87,21 +85,32 @@ ${menuSections}
 
 >*${DESCRIPTION}*`;
 
-        const localImage = path.join(__dirname, '../lib/nawaz.jpg');
-        let imageToUse = isValidImageUrl(BOT_IMAGE) ? BOT_IMAGE : localImage;
-
-        // ✅ 1. SEND MENU (UNCHANGED)
+        // ✅ 1. SEND MENU + CHANNEL
         await conn.sendMessage(from, {
             image: { url: imageToUse },
-            caption: dec
+            caption: dec,
+            contextInfo: {
+                mentionedJid: [m.sender],
+                forwardingScore: 999,
+                isForwarded: true,
+                forwardedNewsletterMessageInfo: {
+                    newsletterJid: '120363402493709861@newsletter',
+                    newsletterName: BOT_NAME,
+                    serverMessageId: 143
+                }
+            }
         }, { quoted: mek });
 
-        // ✅ 2. SMALL DELAY
+        // ⏳ delay
         await new Promise(r => setTimeout(r, 1500));
 
-        // ✅ 3. SEND AUDIO
+        // ✅ 2. SEND AUDIO (100% working method)
+        const audioBuffer = await axios.get("https://files.catbox.moe/ay0es0", {
+            responseType: "arraybuffer"
+        });
+
         await conn.sendMessage(from, {
-            audio: { url: "https://files.catbox.moe/ay0es0" },
+            audio: audioBuffer.data,
             mimetype: "audio/mpeg",
             ptt: false
         }, { quoted: mek });
