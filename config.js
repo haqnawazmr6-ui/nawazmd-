@@ -26,7 +26,7 @@ const config = {
     DESCRIPTION: '*© ᴘᴏᴡᴇʀᴇᴅ ʙʏ ɴᴀᴡᴀᴢ ᴛᴇᴄʜ*',
     ANTI_DELETE_PATH: 'inbox',
     ANTI_DELETE: 'false',
-    STICKER_NAME: '𝐍𝆭𝛂𝆭Ꮿ𝆭𝛂ʑ̽- 𝐌𝛛͎ ',
+    STICKER_NAME: 'ꪀꪖ᭙ꪖɀ',
     ANTI_LINK: 'true',
     WELCOME: 'true',
     ADMIN_ACTION: 'true',
@@ -35,7 +35,7 @@ const config = {
     
     // Bot Identity
     BOT_NAME: 'ᏁᎪᎳᎪᏃ-ᎷᎠ',
-    OWNER_NAME: '𝐍𝆭𝛂𝆭Ꮿ𝆭𝛂ʑ̽- 𝐌𝛛͎ ',
+    OWNER_NAME: 'ꪀꪖ᭙ꪖɀ',
     OWNER_NUMBER: '923067103522',
     DEV: '923067103522',
     IK_IMAGE_PATH: './lib/nawaz.jpg',
@@ -63,7 +63,7 @@ const config = {
         AUTO_TYPING: 'false',
         ALWAYS_ONLINE: 'false',
         VERSION: '1.1.0 Bᴇᴛᴀ',        
-        OWNER_NAME: '𝐍𝆭𝛂𝆭Ꮿ𝆭𝛂ʑ̽- 𝐌𝛛͎ ',
+        OWNER_NAME: 'ꪀꪖ᭙ꪖɀ',
         ANTI_DELETE_PATH: 'inbox',
         OWNER_NUMBER: '923067103522',
         DEV: '923067103522',
