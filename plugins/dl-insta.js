@@ -34,7 +34,7 @@ cmd({
                 [item.type === 'video' ? 'video' : 'image']: { url: item.url },
                 caption: `📶 *Instagram Downloader*\n\n` +
         `- ❤‍🩹 *Quality*: HD\n\n` +
-        `> *© Powered by 𝐍𝆭𝛂𝆭Ꮿ𝆭𝛂ʑ̽-𝐌𝛛͎*`
+        `> *© Powered by N͎A͎W͎A͎Z͎ M͎D͎*`
             }, { quoted: mek });
         }
 
