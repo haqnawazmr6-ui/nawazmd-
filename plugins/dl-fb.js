@@ -38,7 +38,7 @@ cmd({
 
     await conn.sendMessage(from, {
       video: { url: video.url },
-      caption: `🎥 *Facebook Video Downloader*\n\n> Quality: ${video.quality}\n\n> Powered By NAWAZ-MD 💜`
+      caption: `🎥 *Facebook Video Downloader*\n\n> Quality: ${video.quality}\n\n> Powered By 𝓝𝓢𝓦𝓢𝓩𝓜𝓓 💜`
     }, { quoted: mek });
 
     await conn.sendMessage(from, { react: { text: '✅', key: m.key } });
