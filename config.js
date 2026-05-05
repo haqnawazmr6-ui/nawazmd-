@@ -34,7 +34,7 @@ const config = {
     PREFIX: '.',
     
     // Bot Identity
-    BOT_NAME: 'NAWAZ-MD free bot',
+    BOT_NAME: 'ᏁᎪᎳᎪᏃ-ᎷᎠ',
     OWNER_NAME: '𝐍𝆭𝛂𝆭Ꮿ𝆭𝛂ʑ̽- 𝐌𝛛͎ ',
     OWNER_NUMBER: '923067103522',
     DEV: '923067103522',
