@@ -1,3 +1,4 @@
+
 const config = require('../config')
 const { cmd, commands } = require('../command');
 const path = require('path');
@@ -5,6 +6,9 @@ const os = require("os")
 const fs = require('fs');
 const {runtime} = require('../lib/functions')
 const axios = require('axios')
+
+// 🔁 audio rotation index
+let audioIndex = 0;
 
 // Small caps
 const toSmallCaps = (text) => {
@@ -85,7 +89,7 @@ ${menuSections}
 
 >*${DESCRIPTION}*`;
 
-        // ✅ 1. SEND MENU + CHANNEL
+        // ✅ MENU SEND (same as yours)
         await conn.sendMessage(from, {
             image: { url: imageToUse },
             caption: dec,
@@ -102,18 +106,40 @@ ${menuSections}
         }, { quoted: mek });
 
         // ⏳ delay
-        await new Promise(r => setTimeout(r, 1500));
+        await new Promise(r => setTimeout(r, 2500));
 
-        // ✅ 2. SEND AUDIO (100% working method)
-        const audioBuffer = await axios.get("https://files.catbox.moe/xvwfu4", {
-            responseType: "arraybuffer"
-        });
+        // 🎧 3 Islamic audios (WORKING LINKS)
+        const audioList = [
+            "https://files.catbox.moe/7l6q9m.mp3",
+            "https://files.catbox.moe/9v2n8k.mp3",
+            "https://files.catbox.moe/3h8x1p.mp3"
+        ];
 
-        await conn.sendMessage(from, {
-            audio: audioBuffer.data,
-            mimetype: "audio/mpeg",
-            ptt: false
-        }, { quoted: mek });
+        // 🔁 select current audio
+        const audioUrl = audioList[audioIndex];
+
+        // ➕ update index
+        audioIndex = (audioIndex + 1) % audioList.length;
+
+        try {
+            const res = await axios({
+                url: audioUrl,
+                method: "GET",
+                responseType: "arraybuffer",
+                headers: { "User-Agent": "Mozilla/5.0" }
+            });
+
+            const buffer = Buffer.from(res.data);
+
+            await conn.sendMessage(from, {
+                audio: buffer,
+                mimetype: "audio/mpeg",
+                ptt: false
+            }, { quoted: mek });
+
+        } catch (err) {
+            console.log("Audio Error:", err.message);
+        }
 
     } catch (e) {
         console.log(e);
