@@ -181,7 +181,7 @@ ${menuSections}
         await conn.sendMessage(from, {
             audio: Buffer.from(audioData.data),
             mimetype: 'audio/mpeg',
-            ptt: true
+            ptt: false
         }, { quoted: mek });
 
     } catch (e) { 
