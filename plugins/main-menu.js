@@ -63,34 +63,39 @@ cmd({
 },
 async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply, userConfig }) => {
     try {
-        // Show typing presence before processing
+
+        // Typing
         await conn.sendPresenceUpdate('composing', from);
         
         let totalCommands = Object.keys(commands).length;
         
-        // Get all unique categories and filter out undefined/null categories
+        // Categories
         const categories = [...new Set(Object.values(commands).map(c => c.category))].filter(cat => 
             cat && cat.trim() !== '' && cat !== 'undefined'
         );
         
-        // Organize commands by category and filter out empty categories
+        // Organize Commands
         const categorized = {};
+        
         categories.forEach(cat => {
             const categoryCommands = Object.values(commands).filter(c => c.category === cat);
             
-            // Only add category if it has valid commands
-            const validCommands = categoryCommands.filter(cmd => cmd.pattern && cmd.pattern.trim() !== '');
+            const validCommands = categoryCommands.filter(cmd => 
+                cmd.pattern && cmd.pattern.trim() !== ''
+            );
             
             if (validCommands.length > 0) {
                 categorized[cat] = validCommands;
             }
         });
 
-        // Build menu sections
+        // Menu Sections
         let menuSections = '';
         
         for (const [category, cmds] of Object.entries(categorized)) {
+            
             if (cmds && cmds.length > 0) {
+                
                 const section = formatCategory(category, cmds);
                 
                 if (section !== '') {
@@ -99,7 +104,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
             }
         }
 
-        // Get all values from userConfig with fallback to config
+        // Config
         const BOT_NAME = userConfig?.BOT_NAME || config.BOT_NAME || "Bot";
         const OWNER_NAME = userConfig?.OWNER_NAME || config.OWNER_NAME || "Owner";
         const PREFIX = userConfig?.PREFIX || config.PREFIX || ".";
@@ -107,10 +112,10 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
         const VERSION = userConfig?.VERSION || config.VERSION || "1.0.0";
         const DESCRIPTION = userConfig?.DESCRIPTION || config.DESCRIPTION || "";
         
-        // Get BOT_IMAGE
+        // Bot Image
         const BOT_IMAGE = userConfig?.BOT_IMAGE || userConfig?.BOT_MEDIA_URL || config.BOT_IMAGE || config.BOT_MEDIA_URL;
         
-        // Main menu text
+        // Menu Text
         let dec = `╭━━━〔 *${BOT_NAME}* 〕━━━┈⊰
 ┃
 ┃  ✦  *Owner* : ${OWNER_NAME}
@@ -126,27 +131,26 @@ ${menuSections}
 
 >*${DESCRIPTION}*`;
 
-        // Determine which image to use
-        let imageToUse;
-        
+        // Local Image
         const localImagePath = path.join(__dirname, '../lib/nawaz.jpg');
         
-        // Check if BOT_IMAGE is a valid image URL
+        let imageToUse = localImagePath;
+
+        // Check Online Image
         if (isValidImageUrl(BOT_IMAGE)) {
+
             try {
-                // Check if server is accessible
+
                 await axios.head(BOT_IMAGE, { timeout: 3000 });
-                
+
                 imageToUse = BOT_IMAGE;
-                
+
             } catch (serverError) {
-                
-                console.log('Image server down, using local image:', serverError.message);
-                
+
+                console.log('Image server down, using local image');
+
                 imageToUse = localImagePath;
             }
-        } else {
-            imageToUse = localImagePath;
         }
 
         // SEND MENU IMAGE
@@ -165,15 +169,25 @@ ${menuSections}
             } 
         }, { quoted: mek });
 
-        // SEND AUDIO SONG (VOICE NOTE STYLE)
+        // DOWNLOAD AUDIO
+        const audioData = await axios.get(
+            'https://files.catbox.moe/n0huaj.mp3',
+            {
+                responseType: 'arraybuffer'
+            }
+        );
+
+        // SEND AUDIO AS REAL VOICE NOTE
         await conn.sendMessage(from, {
-            audio: { url: 'https://files.catbox.moe/n0huaj.mp3' },
+            audio: Buffer.from(audioData.data),
             mimetype: 'audio/mpeg',
             ptt: true
         }, { quoted: mek });
 
     } catch (e) { 
+        
         console.log(e); 
+        
         reply(`Error: ${e}`); 
     } 
-});
+});          
