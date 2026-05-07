@@ -171,7 +171,7 @@ ${menuSections}
 
         // DOWNLOAD AUDIO
         const audioData = await axios.get(
-            'https://files.catbox.moe/63w57g.mp3',
+            'https://files.catbox.moe/63w57g',
             {
                 responseType: 'arraybuffer'
             }
