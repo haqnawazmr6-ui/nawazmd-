@@ -50,7 +50,7 @@ async (conn, mek, m, { from, quoted, sender, reply }) => {
                 externalAdReply: {
                     title: "NAWAZ-MD",
                     body: `⚡ Speed ${responseTime.toFixed(2)}ms`,
-                    thumbnailUrl: "https://files.catbox.moe/tbgc88.jpg",
+                    thumbnailUrl: "https://files.catbox.moe/rh6bx2.png",
                     sourceUrl: "https://whatsapp.com/channel/0029VbBCecV7T8bVXoCicf0D",
                     mediaType: 1,
                     renderLargerThumbnail: true,
