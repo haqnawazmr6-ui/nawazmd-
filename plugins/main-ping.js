@@ -40,10 +40,21 @@ async (conn, mek, m, { from, quoted, sender, reply }) => {
                 mentionedJid: [sender],
                 forwardingScore: 999,
                 isForwarded: true,
+
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363402493709861@newsletterr',
+                    newsletterJid: '120363402493709861@newsletter',
                     newsletterName: "NawazTech",
                     serverMessageId: 143
+                },
+
+                externalAdReply: {
+                    title: "NAWAZ-MD",
+                    body: `⚡ Speed ${responseTime.toFixed(2)}ms`,
+                    thumbnailUrl: "https://files.catbox.moe/n0huaj.jpg",
+                    sourceUrl: "https://whatsapp.com/channel/0029VbBCecV7T8bVXoCicf0D",
+                    mediaType: 1,
+                    renderLargerThumbnail: true,
+                    showAdAttribution: false
                 }
             }
         }, { quoted: mek });
@@ -53,4 +64,3 @@ async (conn, mek, m, { from, quoted, sender, reply }) => {
         reply(`An error occurred: ${e.message}`);
     }
 });
-
