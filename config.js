@@ -36,7 +36,7 @@ const config = {
     // Bot Identity
     BOT_NAME: 'ᏁᎪᎳᎪᏃ-ᎷᎠ',
     OWNER_NAME: 'ꪀꪖ᭙ꪖɀ',
-    OWNER_NUMBER: '923077813228',
+    OWNER_NUMBER: '923161483125',
     DEV: '923077813228',
     IK_IMAGE_PATH: './lib/nawaz.jpg',
     BOT_IMAGE: 'https://files.catbox.moe/0jijco.jpg ',
@@ -65,7 +65,7 @@ const config = {
         VERSION: '1.1.0 Bᴇᴛᴀ',        
         OWNER_NAME: 'ꪀꪖ᭙ꪖɀ',
         ANTI_DELETE_PATH: 'inbox',
-        OWNER_NUMBER: '923077813228',
+        OWNER_NUMBER: '923161483125',
         DEV: '923077813228',
         DESCRIPTION: '*© ᴘᴏᴡᴇʀᴇᴅ ʙʏ ɴᴀᴡᴀᴢ ᴛᴇᴄʜ*',
         ANTI_DELETE: 'true',
