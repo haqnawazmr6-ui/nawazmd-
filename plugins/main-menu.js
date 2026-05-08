@@ -113,7 +113,7 @@ ${menuSections}
 
         // SEND MENU WITH IMAGE FROM URL ONLY
         await conn.sendMessage(from, { 
-            image: { url: 'https://files.catbox.moe/sx3jah.jpg' },
+            image: { url: 'https://files.catbox.moe/tbgc88.jpg' },
             caption: dec, 
             contextInfo: { 
                 mentionedJid: [m.sender], 
