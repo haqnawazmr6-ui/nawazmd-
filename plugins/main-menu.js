@@ -35,23 +35,6 @@ const formatCategory = (category, cmds) => {
     return `${title}${body}${footer}`;
 };
 
-// Function to validate image URL
-const isValidImageUrl = (url) => {
-    if (!url || typeof url !== 'string' || url.trim() === '') {
-        return false;
-    }
-    
-    const urlLower = url.toLowerCase();
-    
-    // Check image extensions
-    const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.webp'];
-    if (imageExtensions.some(ext => urlLower.endsWith(ext))) {
-        return true;
-    }
-    
-    return false;
-};
-
 cmd({
     pattern: "menu",
     alias: ["m", "help", "allmenu","fullmenu"],
@@ -112,9 +95,6 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
         const VERSION = userConfig?.VERSION || config.VERSION || "1.0.0";
         const DESCRIPTION = userConfig?.DESCRIPTION || config.DESCRIPTION || "";
         
-        // Bot Image
-        const BOT_IMAGE = userConfig?.BOT_IMAGE || userConfig?.BOT_MEDIA_URL || config.BOT_IMAGE || config.BOT_MEDIA_URL;
-        
         // Menu Text
         let dec = `╭━━━〔 *${BOT_NAME}* 〕━━━┈⊰
 ┃
@@ -131,31 +111,9 @@ ${menuSections}
 
 >*${DESCRIPTION}*`;
 
-        // Local Image
-        const localImagePath = path.join(__dirname, '../lib/nawaz.jpg');
-        
-        let imageToUse = localImagePath;
-
-        // Check Online Image
-        if (isValidImageUrl(BOT_IMAGE)) {
-
-            try {
-
-                await axios.head(BOT_IMAGE, { timeout: 3000 });
-
-                imageToUse = BOT_IMAGE;
-
-            } catch (serverError) {
-
-                console.log('Image server down, using local image');
-
-                imageToUse = localImagePath;
-            }
-        }
-
-        // SEND MENU IMAGE
+        // SEND MENU WITH IMAGE FROM URL ONLY
         await conn.sendMessage(from, { 
-            image: { url: imageToUse },
+            image: { url: 'https://files.catbox.moe/tbgc88.jpg' },
             caption: dec, 
             contextInfo: { 
                 mentionedJid: [m.sender], 
@@ -169,7 +127,7 @@ ${menuSections}
             } 
         }, { quoted: mek });
 
-        // DOWNLOAD AUDIO
+        // SEND AUDIO (UNMODIFIED)
         const audioData = await axios.get(
             'https://files.catbox.moe/63w57g',
             {
@@ -177,7 +135,6 @@ ${menuSections}
             }
         );
 
-        // SEND AUDIO AS REAL VOICE NOTE
         await conn.sendMessage(from, {
             audio: Buffer.from(audioData.data),
             mimetype: 'audio/mpeg',
@@ -190,4 +147,4 @@ ${menuSections}
         
         reply(`Error: ${e}`); 
     } 
-});          
+});
