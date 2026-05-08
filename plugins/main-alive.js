@@ -7,58 +7,102 @@ const config = require('../config');
 cmd({
     pattern: "alive",
     alias: ["live"],
-    desc: "Check uptime and system status",
+    desc: "Check Bot Status",
     category: "main",
     react: "🟢",
     filename: __filename
 },
-async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, reply }) => {
+async (conn, mek, m, { from, pushname, reply }) => {
     try {
-        // ⏳ React - processing
-        await conn.sendMessage(from, { react: { text: '⏳', key: m.key } });
-        
-        // 1000ms delay to ensure react is visible
+
+        // ⏳ React
+        await conn.sendMessage(from, {
+            react: {
+                text: "⏳",
+                key: m.key
+            }
+        });
+
+        // Delay
         await new Promise(resolve => setTimeout(resolve, 1000));
 
+        // Uptime
         const formatUptime = (seconds) => {
-            const days = Math.floor(seconds / (3600 * 24));
-            const hours = Math.floor((seconds % (3600 * 24)) / 3600);
-            const minutes = Math.floor((seconds % 3600) / 60);
-            const secs = Math.floor(seconds % 60);
-            
-            let timeString = '';
-            if (days > 0) timeString += `${days} day${days > 1 ? 's' : ''} `;
-            if (hours > 0) timeString += `${hours} hour${hours > 1 ? 's' : ''} `;
-            if (minutes > 0) timeString += `${minutes} minute${minutes > 1 ? 's' : ''} `;
-            if (secs > 0 || timeString === '') timeString += `${secs} second${secs !== 1 ? 's' : ''}`;
-            
-            return timeString.trim();
+            const h = Math.floor(seconds / 3600);
+            const m = Math.floor((seconds % 3600) / 60);
+            const s = Math.floor(seconds % 60);
+
+            return `${h}h ${m}m ${s}s`;
         };
 
         const uptime = formatUptime(process.uptime());
 
-        // Simple status message with only uptime
-        const status = `🤖 Bot pawer by NAWAZ-MD: *${uptime}*`;
+        // RAM
+        const totalMem = (os.totalmem() / 1024 / 1024 / 1024).toFixed(2);
+        const freeMem = (os.freemem() / 1024 / 1024 / 1024).toFixed(2);
+        const usedMem = (totalMem - freeMem).toFixed(2);
 
-        await conn.sendMessage(from, { 
-            text: status,
+        // Message
+        const aliveText = `
+╭━━━〔 *NAWAZ-MD ALIVE* 〕━━━⬣
+┃ 🤖 *Bot:* NAWAZ-MD
+┃ 👑 *Owner:* nawaz 
+┃ ⚡ *Status:* Online
+┃ ⏰ *Uptime:* ${uptime}
+┃ 💾 *RAM:* ${usedMem} GB
+┃ 🖥️ *Platform:* ${os.platform()}
+╰━━━━━━━━━━━━━━━━━━⬣
+
+> Hello ${pushname || "User"} 👋
+> I am alive now 🚀
+`;
+
+        // Send Alive + Channel Forward
+        await conn.sendMessage(from, {
+            text: aliveText,
             contextInfo: {
-                mentionedJid: [m.sender],
                 forwardingScore: 999,
-                isForwarded: true
+                isForwarded: true,
+                forwardedNewsletterMessageInfo: {
+                    newsletterJid: "120363420152871714@newsletter",
+                    newsletterName: "𝐍𝆭𝛂𝆭Ꮿ𝆭𝛂ʑ̽ Tech🇵🇰",
+                    serverMessageId: 143
+                },
+                externalAdReply: {
+                    title: "𝐍𝆭𝛂𝆭Ꮿ𝆭𝛂ʑ̽ Tech🇵🇰",
+                    body: "Join Our WhatsApp Channel 🚀",
+                    mediaType: 1,
+                    renderLargerThumbnail: true,
+                    showAdAttribution: true,
+                    sourceUrl: "https://whatsapp.com/channel/0029VbBCecV7T8bVXoCicf0D"
+                }
             }
-        }, { quoted: mek });
+        }, {
+            quoted: mek
+        });
 
-        // 800ms delay before success react
+        // ✅ React
         await new Promise(resolve => setTimeout(resolve, 800));
-        
-        // ✅ React - success
-        await conn.sendMessage(from, { react: { text: '✅', key: m.key } });
+
+        await conn.sendMessage(from, {
+            react: {
+                text: "✅",
+                key: m.key
+            }
+        });
 
     } catch (e) {
-        console.error("Error in alive command:", e);
-        // ❌ React - error
-        await conn.sendMessage(from, { react: { text: '❌', key: m.key } });
-        await reply(`❌ An error occurred: ${e.message}`);
+
+        console.log(e);
+
+        // ❌ Error React
+        await conn.sendMessage(from, {
+            react: {
+                text: "❌",
+                key: m.key
+            }
+        });
+
+        reply(`❌ Error: ${e.message}`);
     }
 });
