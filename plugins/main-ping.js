@@ -1,66 +1,62 @@
 const config = require('../config');
-const { cmd, commands } = require('../command');
+const { cmd } = require('../command');
 
 cmd({
     pattern: "ping",
-    alias: ["speed","pong"],use: '.ping',
-    desc: "Check bot's response time.",
+    alias: ["pong","speed"],
+    desc: "Bot Status",
     category: "main",
     react: "⚡",
     filename: __filename
 },
-async (conn, mek, m, { from, quoted, sender, reply }) => {
-    try {
-        const start = new Date().getTime();
+async(conn, mek, m, { reply }) => {
 
-        const reactionEmojis = ['🔥', '⚡', '🚀', '💨', '🎯', '🎉', '🌟', '💥', '🕐', '🔹'];
-        const textEmojis = ['💎', '🏆', '⚡️', '🚀', '🎶', '🌠', '🌀', '🔱', '🛡️', '✨'];
+    const start = new Date().getTime();
+    const end = new Date().getTime();
+    const speed = end - start;
 
-        const reactionEmoji = reactionEmojis[Math.floor(Math.random() * reactionEmojis.length)];
-        let textEmoji = textEmojis[Math.floor(Math.random() * textEmojis.length)];
+    const aliveMsg = `
+╔════◇
+║ ⚡ 𝙉𝘼𝙒𝘼𝙕 𝙈𝘿 ⚡
+╠══════════◇
+║ 🤖 Status : Online
+║ 🚀 Speed : ${speed}ms
+║ 👑 Owner : Nawaz MD
+║ 📅 Runtime : Active
+╚══════════◇
 
-        // Ensure reaction and text emojis are different
-        while (textEmoji === reactionEmoji) {
-            textEmoji = textEmojis[Math.floor(Math.random() * textEmojis.length)];
-        }
+┏━━〔 📢 CHANNELS 〕━━⬣
+┃❏ 1 ➠ https://whatsapp.com/channel/0029Vb7xqgTBadmdXadQBn0C
+┃❏ 2 ➠ https://whatsapp.com/channel/0029VbCQjLGLo4hYCzkH4e2L
+┃❏ 3 ➠ https://whatsapp.com/channel/0029Vb8Sqf3Badmb2pgnSW2y
+┗━━━━━━━━━━━━━━⬣
 
-        // Send reaction using conn.sendMessage()
-        await conn.sendMessage(from, {
-            react: { text: textEmoji, key: mek.key }
-        });
+> ⚡ POWERED BY NAWAZ MD ⚡
+`;
 
-        const end = new Date().getTime();
-        const responseTime = (end - start) / 1000;
+    await conn.sendMessage(
+        m.chat,
+        {
+            video: { url: "https://files.catbox.moe/0a6kuw.mp4" },
+            gifPlayback: true,
+            caption: aliveMsg,
 
-        const text = `> N̥ͦḀͦW̥ͦḀͦZ̥ͦ-🄼🄳 Տᑭᗴᗴᗪ ${responseTime.toFixed(2)}ms ${reactionEmoji}*`;
-
-        await conn.sendMessage(from, {
-            text,
             contextInfo: {
-                mentionedJid: [sender],
+                mentionedJid: [m.sender],
                 forwardingScore: 999,
                 isForwarded: true,
 
-                forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363402493709861@newsletter',
-                    newsletterName: "NawazTech",
-                    serverMessageId: 143
-                },
-
                 externalAdReply: {
-                    title: "NAWAZ-MD",
-                    body: `⚡ Speed ${responseTime.toFixed(2)}ms`,
-                    thumbnailUrl: "https://files.catbox.moe/rh6bx2.png",
-                    sourceUrl: "https://whatsapp.com/channel/0029VbBCecV7T8bVXoCicf0D",
+                    title: "⚡ NAWAZ MD ⚡",
+                    body: "BEST WHATSAPP BOT",
                     mediaType: 1,
                     renderLargerThumbnail: true,
-                    showAdAttribution: false
+                    thumbnailUrl: "https://files.catbox.moe/rh6bx2.png",
+                    sourceUrl: "https://whatsapp.com/channel/0029VbBCecV7T8bVXoCicf0D"
                 }
             }
-        }, { quoted: mek });
+        },
+        { quoted: mek }
+    );
 
-    } catch (e) {
-        console.error("Error in ping command:", e);
-        reply(`An error occurred: ${e.message}`);
-    }
 });
