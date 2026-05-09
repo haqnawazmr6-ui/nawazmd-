@@ -20,18 +20,27 @@ const toSmallCaps = (text) => {
     return text.split('').map(char => smallCapsMap[char] || char).join('');
 };
 
-// Format category with cleaner style
+// FORMAT CATEGORY
 const formatCategory = (category, cmds) => {
-    const validCmds = cmds.filter(cmd => cmd.pattern && cmd.pattern.trim() !== '');
-    
+
+    const validCmds = cmds.filter(
+        cmd => cmd.pattern && cmd.pattern.trim() !== ''
+    );
+
     if (validCmds.length === 0) return '';
-    
-    let title = `\n\n╭──❲ *${category.toUpperCase()}* ❳───┈⊰\n`;
+
+    let title = `
+
+╭──❲ *${category.toUpperCase()}* ❳───┈⊰
+`;
+
     let body = validCmds.map(cmd => {
-        const commandName = cmd.pattern || '';
-        return `│  ○  ${toSmallCaps(commandName)}`;
+        return `│  ○  ${toSmallCaps(cmd.pattern)}`;
     }).join('\n');
-    let footer = `\n╰─────────────┈⊰`;
+
+    let footer = `
+╰─────────────┈⊰`;
+
     return `${title}${body}${footer}`;
 };
 
@@ -44,107 +53,148 @@ cmd({
     react: "⚡",
     filename: __filename
 },
-async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply, userConfig }) => {
+async (conn, mek, m, { from, reply, userConfig }) => {
+
     try {
 
-        // Typing
+        // TYPING
         await conn.sendPresenceUpdate('composing', from);
-        
-        let totalCommands = Object.keys(commands).length;
-        
-        // Categories
-        const categories = [...new Set(Object.values(commands).map(c => c.category))].filter(cat => 
-            cat && cat.trim() !== '' && cat !== 'undefined'
-        );
-        
-        // Organize Commands
-        const categorized = {};
-        
-        categories.forEach(cat => {
-            const categoryCommands = Object.values(commands).filter(c => c.category === cat);
-            
-            const validCommands = categoryCommands.filter(cmd => 
-                cmd.pattern && cmd.pattern.trim() !== ''
-            );
-            
-            if (validCommands.length > 0) {
-                categorized[cat] = validCommands;
-            }
-        });
 
-        // Menu Sections
-        let menuSections = '';
-        
-        for (const [category, cmds] of Object.entries(categorized)) {
-            
-            if (cmds && cmds.length > 0) {
-                
-                const section = formatCategory(category, cmds);
-                
-                if (section !== '') {
-                    menuSections += section;
-                }
-            }
-        }
-
-        // Config
+        // CONFIG
         const BOT_NAME = userConfig?.BOT_NAME || config.BOT_NAME || "Bot";
         const OWNER_NAME = userConfig?.OWNER_NAME || config.OWNER_NAME || "Owner";
         const PREFIX = userConfig?.PREFIX || config.PREFIX || ".";
         const MODE = userConfig?.MODE || config.MODE || "private";
         const VERSION = userConfig?.VERSION || config.VERSION || "1.0.0";
-        const DESCRIPTION = userConfig?.DESCRIPTION || config.DESCRIPTION || "";
-        
-        // Menu Text
-        let dec = `╭━━━〔 *${BOT_NAME}* 〕━━━┈⊰
+
+        // MAIN MENU STYLE
+        let optionText = `
+╭━━━〔 *${BOT_NAME}* 〕━━━┈⊰
 ┃
-┃  ✦  *Owner* : ${OWNER_NAME}
-┃  ✦  *Commands* : ${totalCommands}
-┃  ✦  *Runtime* : ${runtime(process.uptime())}
-┃  ✦  *Prefix* : ${PREFIX}
-┃  ✦  *Mode* : ${MODE}
-┃  ✦  *Version* : ${VERSION}
+┃ ✦ *Owner* : ${OWNER_NAME}
+┃ ✦ *Runtime* : ${runtime(process.uptime())}
+┃ ✦ *Prefix* : ${PREFIX}
+┃ ✦ *Mode* : ${MODE}
+┃ ✦ *Version* : ${VERSION}
+┃
+┣━━━━━━━━━━━━━━━┈⊰
+┃
+┃ ❶ ➤ OWNER MENU
+┃ ❷ ➤ GROUP MENU
+┃ ❸ ➤ DOWNLOAD MENU
+┃ ❹ ➤ FUN MENU
+┃ ❺ ➤ MAIN MENU
 ┃
 ╰━━━━━━━━━━━━━━━┈⊰
 
-${menuSections}
+> _Reply With Number To Open Menu_
+`;
 
->*${DESCRIPTION}*`;
-
-        // SEND MENU WITH IMAGE FROM URL ONLY
-        await conn.sendMessage(from, { 
+        // SEND MAIN MENU
+        const sentMsg = await conn.sendMessage(from, {
             image: { url: 'https://files.catbox.moe/tbgc88.jpg' },
-            caption: dec, 
-            contextInfo: { 
-                mentionedJid: [m.sender], 
-                forwardingScore: 999, 
-                isForwarded: true, 
-                forwardedNewsletterMessageInfo: { 
-                    newsletterJid: '120363402493709861@newsletter', 
-                    newsletterName: BOT_NAME, 
-                    serverMessageId: 143 
-                } 
-            } 
-        }, { quoted: mek });
-
-        // SEND AUDIO (UNMODIFIED)
-        const audioData = await axios.get(
-            'https://files.catbox.moe/63w57g',
-            {
-                responseType: 'arraybuffer'
+            caption: optionText,
+            contextInfo: {
+                mentionedJid: [m.sender],
+                forwardingScore: 999,
+                isForwarded: true,
+                forwardedNewsletterMessageInfo: {
+                    newsletterJid: '120363402493709861@newsletter',
+                    newsletterName: BOT_NAME,
+                    serverMessageId: 143
+                }
             }
-        );
-
-        await conn.sendMessage(from, {
-            audio: Buffer.from(audioData.data),
-            mimetype: 'audio/mpeg',
-            ptt: false
         }, { quoted: mek });
 
-    } catch (e) { 
-        
-        console.log(e); 
-        
-        reply(`Error: ${e}`); 
-    } 
+        // REPLY SYSTEM
+        conn.ev.on('messages.upsert', async ({ messages }) => {
+
+            const msg = messages[0];
+            if (!msg.message) return;
+
+            const text =
+                msg.message.conversation ||
+                msg.message.extendedTextMessage?.text ||
+                '';
+
+            const replyId =
+                msg.message?.extendedTextMessage?.contextInfo?.stanzaId;
+
+            // CHECK REPLY
+            if (replyId === sentMsg.key.id) {
+
+                let selectedCategory = '';
+
+                if (text === '1') {
+                    selectedCategory = 'owner';
+                } else if (text === '2') {
+                    selectedCategory = 'group';
+                } else if (text === '3') {
+                    selectedCategory = 'download';
+                } else if (text === '4') {
+                    selectedCategory = 'fun';
+                } else if (text === '5') {
+                    selectedCategory = 'main';
+                } else {
+                    return;
+                }
+
+                // FILTER COMMANDS
+                const filteredCmds = Object.values(commands).filter(
+                    cmd =>
+                        cmd.category &&
+                        cmd.category.toLowerCase() === selectedCategory
+                );
+
+                // CATEGORY MENU
+                let menuText = `
+╭━━━〔 *${selectedCategory.toUpperCase()} MENU* 〕━━━┈⊰
+┃
+┃ ✦ *Bot* : ${BOT_NAME}
+┃ ✦ *Commands* : ${filteredCmds.length}
+┃ ✦ *Version* : ${VERSION}
+┃
+╰━━━━━━━━━━━━━━━┈⊰
+`;
+
+                menuText += formatCategory(selectedCategory, filteredCmds);
+
+                // SEND CATEGORY MENU
+                await conn.sendMessage(from, {
+                    image: { url: 'https://files.catbox.moe/vdjt83.png' },
+                    caption: menuText,
+                    contextInfo: {
+                        mentionedJid: [m.sender],
+                        forwardingScore: 999,
+                        isForwarded: true,
+                        forwardedNewsletterMessageInfo: {
+                            newsletterJid: '120363402493709861@newsletter',
+                            newsletterName: BOT_NAME,
+                            serverMessageId: 143
+                        }
+                    }
+                }, { quoted: msg });
+
+                // AUDIO
+                const audioData = await axios.get(
+                    'https://files.catbox.moe/63w57g',
+                    {
+                        responseType: 'arraybuffer'
+                    }
+                );
+
+                await conn.sendMessage(from, {
+                    audio: Buffer.from(audioData.data),
+                    mimetype: 'audio/mpeg',
+                    ptt: false
+                }, { quoted: msg });
+            }
+        });
+
+    } catch (e) {
+
+        console.log(e);
+        reply(`Error: ${e}`);
+
+    }
 });
