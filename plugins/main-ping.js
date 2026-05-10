@@ -1,55 +1,23 @@
-const config = require('../config');
-const { cmd, commands } = require('../command');
+const { cmd } = require('../command');
 
 cmd({
     pattern: "ping",
     alias: ["pong","speed"],
-    use: '.ping',
-    desc: "Check Bot Speed",
-    category: "main",
     react: "⚡",
     filename: __filename
 },
-async (conn, mek, m, { from, sender, reply }) => {
+async (conn, mek, m, { from, reply }) => {
 
     try {
 
-        const start = new Date().getTime();
+        const start = Date.now();
 
-        const emojis = ['⚡','🚀','🔥','💎','✨','🌙','🎯','🌀'];
-        const emoji = emojis[Math.floor(Math.random() * emojis.length)];
-
-        // React
-        await conn.sendMessage(from, {
-            react: {
-                text: emoji,
-                key: mek.key
-            }
-        });
-
-        const end = new Date().getTime();
-        const speed = end - start;
-
-        const pingText = `
-╭──────────────────⬣
-│  ⚡ *N A W A Z - M D*
-├──────────────────⬣
-│  🚀 Speed   : ${speed}ms
-│  🔥 Status  : Online
-│  💎 Version : 6.0
-│  🌙 Mode    : Public
-│  ✨ Engine  : Active
-╰──────────────────⬣
-
-> ${emoji} *Fast Response Successfully Connected*
-`;
+        const speed = Date.now() - start;
 
         await conn.sendMessage(from, {
-            text: pingText,
+            text: `⚡ Speed : ${speed}ms`,
             contextInfo: {
-                mentionedJid: [sender],
-
-                forwardingScore: 999,
+                forwardingScore: 1,
                 isForwarded: true,
 
                 forwardedNewsletterMessageInfo: {
