@@ -1,111 +1,68 @@
 const config = require('../config');
-const { cmd } = require('../command');
+const { cmd, commands } = require('../command');
 
 cmd({
     pattern: "menu",
-    alias: ["panel", "commands"],
+    alias: ["panel","commands"],
     react: "📜",
     desc: "Bot Menu",
     category: "main",
     filename: __filename
 },
-async(conn, mek, m, { from, pushname, reply, sender }) => {
+async(conn, mek, m, { from, pushname, reply }) => {
 
 try {
 
-const menuText = `
-╭━━━〔 *🤖 NAWAZ MD MENU 🤖* 〕━━━┈⊷
-┃✦ Owner : ${config.OWNER_NAME}
-┃✦ User : ${pushname}
-┃✦ Prefix : ${config.PREFIX}
-┃✦ Mode : Public
-╰━━━━━━━━━━━━━━━┈⊷
-
-╭━━〔 *📌 MAIN MENU* 〕━━┈⊷
-┃➤ alive
-┃➤ ping
-┃➤ menu
-┃➤ owner
-╰━━━━━━━━━━━━━━━┈⊷
-
-╭━━〔 *👑 OWNER MENU* 〕━━┈⊷
-┃➤ shutdown
-┃➤ restart
-┃➤ block
-┃➤ unblock
-┃➤ setpp
-┃➤ anticall on/off
-╰━━━━━━━━━━━━━━━┈⊷
-
-╭━━〔 *👥 GROUP MENU* 〕━━┈⊷
-┃➤ kick
-┃➤ add
-┃➤ promote
-┃➤ demote
-┃➤ mute
-┃➤ unmute
-┃➤ tagall
-╰━━━━━━━━━━━━━━━┈⊷
-
-╭━━〔 *🎵 DOWNLOAD MENU* 〕━━┈⊷
-┃➤ song
-┃➤ video
-┃➤ play
-┃➤ tiktok
-┃➤ fb
-┃➤ insta
-╰━━━━━━━━━━━━━━━┈⊷
-
-╭━━〔 *⚡ POWERED BY NAWAZ MD* 〕━━┈⊷
-┃🔥 Simple • Fast • Powerful
-╰━━━━━━━━━━━━━━━┈⊷
+let menu = `
+╭──⚡ MENU ⚡──╮
+│ 👤 ${pushname}
+│ 🔥 Prefix : ${config.PREFIX}
+│ 🤖 Commands : ${commands.length}
+╰────────────╯
 `;
 
-await conn.sendMessage(
-    from,
-    {
-        image: {
-            url: "https://files.catbox.moe/rh6bx2.png"
-        },
-        caption: menuText,
+const categories = {};
 
-        contextInfo: {
-            mentionedJid: [sender],
-            forwardingScore: 999,
-            isForwarded: true,
+for (let command of commands) {
 
-            forwardedNewsletterMessageInfo: {
-                newsletterJid: '120363402493709861@newsletter',
-                newsletterName: "NawazTech",
-                serverMessageId: 143
-            },
+    if (!command.pattern) continue;
 
-            externalAdReply: {
-                title: "NAWAZ-MD",
-                body: "Simple • Fast • Powerful",
-                thumbnailUrl: "https://files.catbox.moe/rh6bx2.png",
-                mediaType: 1,
-                renderLargerThumbnail: true,
-                showAdAttribution: false
-            }
+    const category = command.category || "other";
+
+    if (!categories[category]) {
+        categories[category] = [];
+    }
+
+    categories[category].push(command.pattern);
+}
+
+for (let cat in categories) {
+
+    menu += `\n📌 ${cat.toUpperCase()}\n`;
+
+    for (let cmd of categories[cat]) {
+        menu += `• ${cmd}\n`;
+    }
+}
+
+await conn.sendMessage(from, {
+    image: {
+        url: "https://files.catbox.moe/rh6bx2.png"
+    },
+    caption: menu,
+
+    contextInfo: {
+        forwardingScore: 1,
+        isForwarded: true,
+
+        forwardedNewsletterMessageInfo: {
+            newsletterJid: "120363402493709861@newsletter",
+            newsletterName: "NAWAZ TECH",
+            serverMessageId: 1
         }
-    },
-    { quoted: mek }
-);
+    }
 
-
-// AUDIO 1
-await conn.sendMessage(
-    from,
-    {
-        audio: {
-            url: "https://files.catbox.moe/3ctzis"
-        },
-        mimetype: "audio/mpeg",
-        ptt: false 
-    },
-    { quoted: mek }
-);
+}, { quoted: mek });
 
 } catch (e) {
 console.log(e);
