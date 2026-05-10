@@ -1,47 +1,43 @@
 const config = require('../config');
-const { cmd, commands } = require('../command');
+const { cmd } = require('../command');
 
 cmd({
     pattern: "menu",
-    alias: ["help", "allmenu"],
-    desc: "Simple Menu",
-    category: "main",
+    alias: ["panel", "commands"],
     react: "📜",
+    desc: "Bot Menu",
+    category: "main",
     filename: __filename
 },
-async(conn, mek, m, { from, pushname, reply, userConfig }) => {
+async(conn, mek, m, { from, pushname, reply, sender }) => {
 
 try {
 
-const BOT_NAME = userConfig?.BOT_NAME || config.BOT_NAME || "NAWAZ MD";
-const OWNER_NAME = userConfig?.OWNER_NAME || config.OWNER_NAME || "Nawaz";
-const PREFIX = userConfig?.PREFIX || config.PREFIX || ".";
+const menuText = `
+╭━━━〔 *🤖 NAWAZ MD MENU 🤖* 〕━━━┈⊷
+┃✦ Owner : ${config.OWNER_NAME}
+┃✦ User : ${pushname}
+┃✦ Prefix : ${config.PREFIX}
+┃✦ Mode : Public
+╰━━━━━━━━━━━━━━━┈⊷
 
-let menu = `
-╭━━━〔 *${BOT_NAME}* 〕━━━⊷
-┃👤 User : ${pushname || "User"}
-┃🤖 Owner : ${OWNER_NAME}
-┃⚡ Prefix : ${PREFIX}
-┃📦 Commands : ${commands?.length || 0}
-╰━━━━━━━━━━━━━━━━⊷
-
-╭━━〔 *MAIN MENU* 〕━━⊷
+╭━━〔 *📌 MAIN MENU* 〕━━┈⊷
 ┃➤ alive
 ┃➤ ping
 ┃➤ menu
 ┃➤ owner
-╰━━━━━━━━━━━━━━⊷
+╰━━━━━━━━━━━━━━━┈⊷
 
-╭━━〔 *DOWNLOAD MENU* 〕━━⊷
-┃➤ song
-┃➤ video
-┃➤ play
-┃➤ tiktok
-┃➤ fb
-┃➤ insta
-╰━━━━━━━━━━━━━━⊷
+╭━━〔 *👑 OWNER MENU* 〕━━┈⊷
+┃➤ shutdown
+┃➤ restart
+┃➤ block
+┃➤ unblock
+┃➤ setpp
+┃➤ anticall on/off
+╰━━━━━━━━━━━━━━━┈⊷
 
-╭━━〔 *GROUP MENU* 〕━━⊷
+╭━━〔 *👥 GROUP MENU* 〕━━┈⊷
 ┃➤ kick
 ┃➤ add
 ┃➤ promote
@@ -49,54 +45,85 @@ let menu = `
 ┃➤ mute
 ┃➤ unmute
 ┃➤ tagall
-╰━━━━━━━━━━━━━━⊷
+╰━━━━━━━━━━━━━━━┈⊷
 
-╭━━〔 *OWNER MENU* 〕━━⊷
-┃➤ block
-┃➤ unblock
-┃➤ setpp
-┃➤ restart
-┃➤ shutdown
-╰━━━━━━━━━━━━━━⊷
+╭━━〔 *🎵 DOWNLOAD MENU* 〕━━┈⊷
+┃➤ song
+┃➤ video
+┃➤ play
+┃➤ tiktok
+┃➤ fb
+┃➤ insta
+╰━━━━━━━━━━━━━━━┈⊷
 
-╭━━〔 *FUN MENU* 〕━━⊷
-┃➤ joke
-┃➤ quote
-┃➤ fact
-┃➤ truth
-┃➤ dare
-╰━━━━━━━━━━━━━━⊷
-
-> ${config.DESCRIPTION || "Simple WhatsApp Bot"}
+╭━━〔 *⚡ POWERED BY NAWAZ MD* 〕━━┈⊷
+┃🔥 Simple • Fast • Powerful
+╰━━━━━━━━━━━━━━━┈⊷
 `;
 
-await conn.sendMessage(from, {
-    image: {
-        url: 'https://files.catbox.moe/tbgc88.jpg'
-    },
+await conn.sendMessage(
+    from,
+    {
+        image: {
+            url: "https://files.catbox.moe/rh6bx2.png"
+        },
+        caption: menuText,
 
-    caption: menu,
+        contextInfo: {
+            mentionedJid: [sender],
+            forwardingScore: 999,
+            isForwarded: true,
 
-    contextInfo: {
-        mentionedJid: [m.sender],
-        forwardingScore: 999,
-        isForwarded: true,
+            forwardedNewsletterMessageInfo: {
+                newsletterJid: '120363402493709861@newsletter',
+                newsletterName: "NawazTech",
+                serverMessageId: 143
+            },
 
-        forwardedNewsletterMessageInfo: {
-            newsletterJid: '120363402493709861@newsletter',
-            newsletterName: BOT_NAME,
-            serverMessageId: 143
+            externalAdReply: {
+                title: "NAWAZ-MD",
+                body: "Simple • Fast • Powerful",
+                thumbnailUrl: "https://files.catbox.moe/rh6bx2.png",
+                mediaType: 1,
+                renderLargerThumbnail: true,
+                showAdAttribution: false
+            }
         }
-    }
+    },
+    { quoted: mek }
+);
 
-}, { quoted: mek });
+
+// AUDIO 1
+await conn.sendMessage(
+    from,
+    {
+        audio: {
+            url: "https://files.catbox.moe/3ctzis.mp3"
+        },
+        mimetype: "audio/mpeg",
+        ptt: false 
+    },
+    { quoted: mek }
+);
+
+
+// AUDIO 2
+await conn.sendMessage(
+    from,
+    {
+        audio: {
+            url: "https://files.catbox.moe/g5p3hr.mp3"
+        },
+        mimetype: "audio/mpeg",
+        ptt: false
+    },
+    { quoted: mek }
+);
 
 } catch (e) {
-
 console.log(e);
-
-reply("Menu Error");
-
+reply(`${e}`);
 }
 
 });
