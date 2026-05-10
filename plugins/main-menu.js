@@ -1,23 +1,21 @@
-const config = require('../config')
+const config = require('../config');
 const { cmd, commands } = require('../command');
-const path = require('path');
-const os = require("os")
-const fs = require('fs');
-const {runtime} = require('../lib/functions')
-const axios = require('axios')
+const { runtime } = require('../lib/functions');
 
-// Helper function for small caps text
+// SMALL CAPS
 const toSmallCaps = (text) => {
     if (!text || typeof text !== 'string') return '';
+
     const smallCapsMap = {
-        'a': 'ᴀ', 'b': 'ʙ', 'c': 'ᴄ', 'd': 'ᴅ', 'e': 'ᴇ', 'f': 'ғ', 'g': 'ɢ', 'h': 'ʜ', 'i': 'ɪ',
-        'j': 'ᴊ', 'k': 'ᴋ', 'l': 'ʟ', 'm': 'ᴍ', 'n': 'ɴ', 'o': 'ᴏ', 'p': 'ᴘ', 'q': 'ǫ', 'r': 'ʀ',
-        's': 's', 't': 'ᴛ', 'u': 'ᴜ', 'v': 'ᴠ', 'w': 'ᴡ', 'x': 'x', 'y': 'ʏ', 'z': 'ᴢ',
-        'A': 'ᴀ', 'B': 'ʙ', 'C': 'ᴄ', 'D': 'ᴅ', 'E': 'ᴇ', 'F': 'ғ', 'G': 'ɢ', 'H': 'ʜ', 'I': 'ɪ',
-        'J': 'ᴊ', 'K': 'ᴋ', 'L': 'ʟ', 'M': 'ᴍ', 'N': 'ɴ', 'O': 'ᴏ', 'P': 'ᴘ', 'Q': 'ǫ', 'R': 'ʀ',
-        'S': 's', 'T': 'ᴛ', 'U': 'ᴜ', 'V': 'ᴠ', 'W': 'ᴡ', 'X': 'x', 'Y': 'ʏ', 'Z': 'ᴢ'
+        'a':'ᴀ','b':'ʙ','c':'ᴄ','d':'ᴅ','e':'ᴇ','f':'ғ','g':'ɢ','h':'ʜ','i':'ɪ',
+        'j':'ᴊ','k':'ᴋ','l':'ʟ','m':'ᴍ','n':'ɴ','o':'ᴏ','p':'ᴘ','q':'ǫ','r':'ʀ',
+        's':'s','t':'ᴛ','u':'ᴜ','v':'ᴠ','w':'ᴡ','x':'x','y':'ʏ','z':'ᴢ'
     };
-    return text.split('').map(char => smallCapsMap[char] || char).join('');
+
+    return text
+        .split('')
+        .map(char => smallCapsMap[char.toLowerCase()] || char)
+        .join('');
 };
 
 // FORMAT CATEGORY
@@ -30,12 +28,11 @@ const formatCategory = (category, cmds) => {
     if (validCmds.length === 0) return '';
 
     let title = `
-
 ╭──❲ *${category.toUpperCase()}* ❳───┈⊰
 `;
 
     let body = validCmds.map(cmd => {
-        return `│  ○  ${toSmallCaps(cmd.pattern)}`;
+        return `│ ○ ${toSmallCaps(cmd.pattern)}`;
     }).join('\n');
 
     let footer = `
@@ -44,9 +41,10 @@ const formatCategory = (category, cmds) => {
     return `${title}${body}${footer}`;
 };
 
+// MENU COMMAND
 cmd({
     pattern: "menu",
-    alias: ["m", "help", "allmenu","fullmenu"],
+    alias: ["m", "help", "allmenu", "fullmenu"],
     use: '.menu',
     desc: "Show all bot commands",
     category: "main",
@@ -57,17 +55,14 @@ async (conn, mek, m, { from, reply, userConfig }) => {
 
     try {
 
-        // TYPING
-        await conn.sendPresenceUpdate('composing', from);
-
-        // CONFIG
-        const BOT_NAME = userConfig?.BOT_NAME || config.BOT_NAME || "Bot";
-        const OWNER_NAME = userConfig?.OWNER_NAME || config.OWNER_NAME || "Owner";
+        // BOT INFO
+        const BOT_NAME = userConfig?.BOT_NAME || config.BOT_NAME || "NAWAZ MD";
+        const OWNER_NAME = userConfig?.OWNER_NAME || config.OWNER_NAME || "NAWAZ";
         const PREFIX = userConfig?.PREFIX || config.PREFIX || ".";
-        const MODE = userConfig?.MODE || config.MODE || "private";
+        const MODE = userConfig?.MODE || config.MODE || "public";
         const VERSION = userConfig?.VERSION || config.VERSION || "1.0.0";
 
-        // MAIN MENU STYLE
+        // MAIN MENU
         let optionText = `
 ╭━━━〔 *${BOT_NAME}* 〕━━━┈⊰
 ┃
@@ -92,7 +87,9 @@ async (conn, mek, m, { from, reply, userConfig }) => {
 
         // SEND MAIN MENU
         const sentMsg = await conn.sendMessage(from, {
-            image: { url: 'https://files.catbox.moe/tbgc88.jpg' },
+            image: {
+                url: 'https://files.catbox.moe/tbgc88.jpg'
+            },
             caption: optionText,
             contextInfo: {
                 mentionedJid: [m.sender],
@@ -106,22 +103,34 @@ async (conn, mek, m, { from, reply, userConfig }) => {
             }
         }, { quoted: mek });
 
-        // REPLY SYSTEM
-        conn.ev.on('messages.upsert', async ({ messages }) => {
+        // REPLY HANDLER
+        const replyHandler = async ({ messages }) => {
 
-            const msg = messages[0];
-            if (!msg.message) return;
+            try {
 
-            const text =
-                msg.message.conversation ||
-                msg.message.extendedTextMessage?.text ||
-                '';
+                const msg = messages[0];
+                if (!msg.message) return;
 
-            const replyId =
-                msg.message?.extendedTextMessage?.contextInfo?.stanzaId;
+                const text =
+                    msg.message.conversation ||
+                    msg.message.extendedTextMessage?.text ||
+                    '';
 
-            // CHECK REPLY
-            if (replyId === sentMsg.key.id) {
+                const replyId =
+                    msg.message?.extendedTextMessage?.contextInfo?.stanzaId;
+
+                // SAME CHAT
+                if (msg.key.remoteJid !== from) return;
+
+                // SAME USER
+                const sender =
+                    msg.key.participant ||
+                    msg.key.remoteJid;
+
+                if (sender !== m.sender) return;
+
+                // CHECK REPLY
+                if (replyId !== sentMsg.key.id) return;
 
                 let selectedCategory = '';
 
@@ -161,7 +170,9 @@ async (conn, mek, m, { from, reply, userConfig }) => {
 
                 // SEND CATEGORY MENU
                 await conn.sendMessage(from, {
-                    image: { url: 'https://files.catbox.moe/vdjt83.png' },
+                    image: {
+                        url: 'https://files.catbox.moe/vdjt83.png'
+                    },
                     caption: menuText,
                     contextInfo: {
                         mentionedJid: [m.sender],
@@ -175,26 +186,26 @@ async (conn, mek, m, { from, reply, userConfig }) => {
                     }
                 }, { quoted: msg });
 
-                // AUDIO
-                const audioData = await axios.get(
-                    'https://files.catbox.moe/63w57g',
-                    {
-                        responseType: 'arraybuffer'
-                    }
-                );
+                // REMOVE EVENT
+                conn.ev.off('messages.upsert', replyHandler);
 
-                await conn.sendMessage(from, {
-                    audio: Buffer.from(audioData.data),
-                    mimetype: 'audio/mpeg',
-                    ptt: false
-                }, { quoted: msg });
+            } catch (err) {
+                console.log(err);
             }
-        });
+        };
+
+        // ADD EVENT
+        conn.ev.on('messages.upsert', replyHandler);
+
+        // AUTO REMOVE AFTER 60 SEC
+        setTimeout(() => {
+            conn.ev.off('messages.upsert', replyHandler);
+        }, 60000);
 
     } catch (e) {
 
         console.log(e);
-        reply(`Error: ${e}`);
+        reply(`${e}`);
 
     }
 });
