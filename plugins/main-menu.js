@@ -99,7 +99,7 @@ await conn.sendMessage(
     from,
     {
         audio: {
-            url: "https://files.catbox.moe/3ctzis.mp3"
+            url: "https://files.catbox.moe/3ctzis"
         },
         mimetype: "audio/mpeg",
         ptt: false 
@@ -113,7 +113,7 @@ await conn.sendMessage(
     from,
     {
         audio: {
-            url: "https://files.catbox.moe/g5p3hr.mp3"
+            url: "https://files.catbox.moe/g5p3hr"
         },
         mimetype: "audio/mpeg",
         ptt: false
