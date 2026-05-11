@@ -3,8 +3,8 @@ const { cmd, commands } = require('../command');
 
 cmd({
     pattern: "menu",
-    alias: ["panel", "commands"],
-    react: "📜",
+    alias: ["help"],
+    react: "✨",
     desc: "Bot Menu",
     category: "main",
     filename: __filename
@@ -13,19 +13,16 @@ async(conn, mek, m, { from, pushname, reply }) => {
 
 try {
 
-const pp = "https://files.catbox.moe/rh6bx2.png";
-
 let menu = `
-╔══════════════════════╗
-║      🤖 NAWAZ TECH 🤖
-╠══════════════════════╣
-║ 👤 User : ${pushname}
-║ ⚡ Prefix : ${config.PREFIX}
-║ 📂 Total Cmds : ${commands.length}
-╚══════════════════════╝
+╭──────────────●●►
+│ 🤖 *NAWAZ MD*
+│ 👤 User : ${pushname}
+│ ⚡ Prefix : ${config.PREFIX}
+│ 📂 Commands : ${commands.length}
+╰──────────────●●►
 `;
 
-const categories = {};
+const categoryMap = {};
 
 for (let command of commands) {
 
@@ -33,40 +30,40 @@ for (let command of commands) {
 
     const category = command.category || "other";
 
-    if (!categories[category]) {
-        categories[category] = [];
+    if (!categoryMap[category]) {
+        categoryMap[category] = [];
     }
 
-    categories[category].push(command.pattern);
+    categoryMap[category].push(command.pattern);
 }
 
-for (let cat in categories) {
+// CATEGORY LOOP
+for (let cat in categoryMap) {
 
     menu += `
 
-╭━━━〔 ${cat.toUpperCase()} 〕━━━⬣
+╭─❍ ${cat.toUpperCase()}
 `;
 
-    for (let cmd of categories[cat]) {
-        menu += `┃➤ ${config.PREFIX}${cmd}\n`;
+    for (let cmd of categoryMap[cat]) {
+        menu += `│ ➤ ${config.PREFIX}${cmd}\n`;
     }
 
-    menu += `╰━━━━━━━━━━━━━━━━⬣
+    menu += `╰────────────⬣
 `;
 }
 
 menu += `
-╔══════════════════════╗
-║ 🔥 Powered By NAWAZ TECH
-║ ⚡ Fast WhatsApp Bot
-╚══════════════════════╝
+> 🌸 NAWAZ MD FAST BOT
 `;
 
+// MENU SEND
 await conn.sendMessage(from, {
-    image: { url: pp },
-    caption: menu,
+
+    text: menu,
 
     contextInfo: {
+
         forwardingScore: 999,
         isForwarded: true,
 
@@ -79,9 +76,43 @@ await conn.sendMessage(from, {
 
 }, { quoted: mek });
 
+
+// AUDIO SEND
+await conn.sendMessage(from, {
+
+    audio: {
+        url: "https://files.catbox.moe/mfht06"
+    },
+
+    mimetype: 'audio/mpeg',
+    ptt: false,
+
+    contextInfo: {
+
+        forwardingScore: 999,
+        isForwarded: true,
+
+        externalAdReply: {
+            title: "NAWAZ MD",
+            body: "Islamic Audio Menu",
+            mediaType: 1
+        },
+
+        forwardedNewsletterMessageInfo: {
+            newsletterJid: "120363402493709861@newsletter",
+            newsletterName: "NAWAZ TECH",
+            serverMessageId: 1
+        }
+    }
+
+}, { quoted: mek });
+
 } catch (e) {
+
 console.log(e);
-reply(`${e}`);
+
+reply(`ERROR : ${e}`);
+
 }
 
 });
