@@ -1,9 +1,18 @@
 const os = require('os')
+const http = require('http')
+
+// Simple Web Server
+http.createServer((req, res) => {
+    res.writeHead(200, { 'Content-Type': 'text/plain' })
+    res.end('NAWAZ MD BOT RUNNING')
+}).listen(process.env.PORT || 8000)
 
 // RAM Cleaner
 setInterval(() => {
     try {
-        if (global.gc) global.gc()
+        if (global.gc) {
+            global.gc()
+        }
     } catch (e) {
         console.log(e)
     }
