@@ -1,99 +1,57 @@
-const express = require("express");
-const fs = require("fs");
-const path = require("path");
-const pino = require("pino");
-
-const {
-  default: makeWASocket,
-  useMultiFileAuthState,
-  DisconnectReason
-} = require("@whiskeysockets/baileys");
-
-// ================= SERVER =================
-
-const app = express();
-
-app.get("/", (req, res) => {
-  res.send("Bot Running Successfully ✅");
-});
-
-const PORT = process.env.PORT || 8000;
-
-app.listen(PORT, () => {
-  console.log(`🌐 Server running on port ${PORT}`);
-});
-
-// ================= START BOT =================
-
-async function startBot() {
-
-  const { state, saveCreds } =
-    await useMultiFileAuthState("./session");
-
-  const sock = makeWASocket({
-    logger: pino({ level: "silent" }),
-    printQRInTerminal: false,
-    auth: state,
-    browser: ["Nawaz-MD", "Chrome", "1.0.0"]
-  });
-
-  // ================= LOAD PLUGINS =================
-
-  const pluginsPath = path.join(__dirname, "./plugins");
-
-  if (fs.existsSync(pluginsPath)) {
-
-    fs.readdirSync(pluginsPath).forEach((file) => {
-
-      if (file.endsWith(".js")) {
-
-        require(path.join(pluginsPath, file));
-
-        console.log(`✅ Plugin Loaded: ${file}`);
-
-      }
-
-    });
-
+{
+  "name": "Jawad-MD",
+  "version": "1.4.0",
+  "description": "jawad WhatsApp Bot",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "@whiskeysockets/baileys": "7.0.0-rc.9",
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "@vitalets/google-translate-api": "^9.2.1",
+    "@hapi/boom": "^10.0.1",
+    "awesome-phonenumber": "^5.9.0",
+    "pino": "^9.7.0",
+    "ffmpeg": "^0.0.4",
+    "fluent-ffmpeg": "^2.1.2",
+    "buffer": "^6.0.3",
+    "util": "^0.12.5",
+    "express": "^4.18.2",
+    "fs-extra": "^11.1.1",
+    "file_size_url": "1.0.6",
+     "fs": "^0.0.1-security",
+    "axios": "^1.6.0",
+    "moment-timezone": "^0.5.43",
+    "pino": "^8.15.0",
+    "body-parser": "^1.20.2",
+    "file-type": "^21.0.0",
+    "path": "^0.12.7",
+    "mongodb": "^5.8.0",
+    "dotenv": "^16.0.0",
+    "cheerio": "^1.0.0-rc.12",
+    "yt-search": "2.13.1",
+    "adm-zip": "^0.5.16",
+    "jimp": "latest",
+    "node-fetch": "^2.6.1",
+    "megajs": "^1.3.7",
+    "google-tts-api": "^2.0.2",
+    "wa_set_pkg": "1.0.5",
+    "wa-sticker-formatter": "^4.4.4",
+    "node-webpmux": "^3.2.1",
+    "form-data": "^4.0.0",
+    "jsdom": "^22.1.0",
+    "qrcode": "^1.5.4",
+    "qrcode-reader": "^1.0.4",
+    "qrcode-terminal": "^0.12.0",
+    "translate-google-api": "^1.0.4",
+    "ws": "^8.17.1",
+    "yargs": "^17.6.0",
+    "yargs-parser": "^21.1.1",
+    "body-parser": "^1.20.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
-
-  console.log("🔄 MINI BOT CONNECTING...");
-
-  // ================= CONNECTION EVENTS =================
-
-  sock.ev.on("connection.update", async (update) => {
-
-    const { connection, lastDisconnect } = update;
-
-    if (connection === "open") {
-
-      console.log("✅ WhatsApp Connected Successfully");
-
-    }
-
-    if (connection === "close") {
-
-      const reason =
-        lastDisconnect?.error?.output?.statusCode;
-
-      console.log("❌ Connection Closed:", reason);
-
-      if (reason !== DisconnectReason.loggedOut) {
-
-        startBot();
-
-      }
-
-    }
-
-  });
-
-  // ================= SAVE SESSION =================
-
-  sock.ev.on("creds.update", saveCreds);
-
 }
-
-// ================= RUN BOT =================
-
-startBot();
