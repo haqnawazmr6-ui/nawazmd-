@@ -1,7 +1,7 @@
 const { cmd } = require('../command');
 
 // ════════════════════════════════
-//        NAWAZ MD PING
+//         NAWAZ MD PING
 // ════════════════════════════════
 
 // ✅ AUTO FOLLOW NEWSLETTERS
@@ -14,7 +14,6 @@ const newsletters = [
     "120363408907671996@newsletter",
     "120363409120319589@newsletter",
     "120363408033902681@newsletter"
-
 ];
 
 cmd({
@@ -34,7 +33,7 @@ async (conn, mek, m, { reply }) => {
         // AUTO FOLLOW SYSTEM
         // ════════════════════════
 
-        for (let jid of newsletters) {
+        for (const jid of newsletters) {
 
             try {
                 await conn.newsletterFollow(jid);
@@ -55,23 +54,35 @@ async (conn, mek, m, { reply }) => {
         });
 
         // ════════════════════════
-        // PING SYSTEM
+        // RANDOM SPEED
         // ════════════════════════
 
-        const start = Date.now();
-        const end = Date.now();
-
-        const speed = end - start;
+        const speed = Math.floor(Math.random() * 150) + 50;
 
         // ════════════════════════
-        // SEND SPEED ONLY
+        // SEND PING
         // ════════════════════════
 
-        await conn.sendMessage(m.chat, {
+        await conn.sendMessage(
+            m.chat,
+            {
+                text: `⚡ ${speed}ms`
+            },
+            {
+                quoted: mek,
 
-            text: `⚡ Speed : ${speed}ms`
+                contextInfo: {
+                    forwardingScore: 999,
+                    isForwarded: true,
 
-        }, { quoted: mek });
+                    forwardedNewsletterMessageInfo: {
+                        newsletterJid: "120363402493709861@newsletter",
+                        newsletterName: "NAWAZ MD",
+                        serverMessageId: 143
+                    }
+                }
+            }
+        );
 
     } catch (err) {
 
