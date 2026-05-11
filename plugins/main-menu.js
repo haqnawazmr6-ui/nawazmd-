@@ -3,7 +3,7 @@ const { cmd, commands } = require('../command');
 
 cmd({
     pattern: "menu",
-    alias: ["panel","commands"],
+    alias: ["panel", "commands"],
     react: "📜",
     desc: "Bot Menu",
     category: "main",
@@ -13,12 +13,18 @@ async(conn, mek, m, { from, pushname, reply }) => {
 
 try {
 
+let pp = "https://files.catbox.moe/rh6bx2.png";
+
+try {
+    pp = await conn.profilePictureUrl(conn.user.id, 'image');
+} catch {}
+
 let menu = `
-╭──⚡ MENU ⚡──╮
-│ 👤 ${pushname}
-│ 🔥 Prefix : ${config.PREFIX}
-│ 🤖 Commands : ${commands.length}
-╰────────────╯
+╔═════〔 🤖 MENU 🤖 〕═════╗
+║ 👤 ${pushname}
+║ ⚡ Prefix : ${config.PREFIX}
+║ 📂 Cmds : ${commands.length}
+╚══════════════════════╝
 `;
 
 const categories = {};
@@ -38,17 +44,19 @@ for (let command of commands) {
 
 for (let cat in categories) {
 
-    menu += `\n📌 ${cat.toUpperCase()}\n`;
+    menu += `\n╭━━〔 ${cat.toUpperCase()} 〕━━⬣\n`;
 
     for (let cmd of categories[cat]) {
-        menu += `• ${cmd}\n`;
+        menu += `┃➤ ${config.PREFIX}${cmd}\n`;
     }
+
+    menu += `╰━━━━━━━━━━━━⬣\n`;
 }
 
+menu += `\n> 🔥 NAWAZ TECH`;
+
 await conn.sendMessage(from, {
-    image: {
-        url: "https://files.catbox.moe/rh6bx2.png"
-    },
+    image: { url: pp },
     caption: menu,
 
     contextInfo: {
