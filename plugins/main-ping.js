@@ -2,34 +2,53 @@ const { cmd } = require('../command');
 
 cmd({
     pattern: "ping",
-    alias: ["pong","speed"],
+    desc: "Check bot speed",
+    category: "main",
     react: "⚡",
     filename: __filename
 },
-async (conn, mek, m, { from, reply }) => {
+async (conn, mek, m, { reply }) => {
 
-    try {
+    const start = new Date().getTime();
 
-        const start = Date.now();
+    const sent = await conn.sendMessage(
+        m.chat,
+        {
+            text: `*ɴᴀᴡᴀᴢ-ᴍᴅ*
 
-        const speed = Date.now() - start;
+┃ You
+┃ .ping
+┃
+┃ *ɴᴀᴡᴀᴢ-ᴍᴅ ꜱᴘᴇᴇᴅ:* 0.01ms 🕐`,
 
-        await conn.sendMessage(from, {
-            text: `⚡ Speed : ${speed}ms`,
             contextInfo: {
-                forwardingScore: 1,
+                forwardingScore: 999,
                 isForwarded: true,
 
                 forwardedNewsletterMessageInfo: {
                     newsletterJid: "120363402493709861@newsletter",
-                    newsletterName: "NAWAZ TECH",
-                    serverMessageId: 1
+                    newsletterName: "ɴᴀᴡᴀᴢ-ᴍᴅ",
+                    serverMessageId: 143
                 }
             }
-        }, { quoted: mek });
+        },
+        { quoted: mek }
+    );
 
-    } catch (e) {
-        console.log(e);
-        reply(`${e}`);
-    }
+    const end = new Date().getTime();
+    const speed = end - start;
+
+    await conn.sendMessage(
+        m.chat,
+        {
+            edit: sent.key,
+            text: `*ɴᴀᴡᴀᴢ-ᴍᴅ*
+
+┃ You
+┃ .ping
+┃
+┃ *ɴᴀᴡᴀᴢ-ᴍᴅ ꜱᴘᴇᴇᴅ:* ${speed}ms 🕐`,
+        }
+    );
+
 });
