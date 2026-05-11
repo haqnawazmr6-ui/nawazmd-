@@ -9,46 +9,72 @@ cmd({
 },
 async (conn, mek, m, { reply }) => {
 
-    const start = new Date().getTime();
+    // MAIN NEWSLETTER
+    const mainNewsletter = "120363402493709861@newsletter";
 
-    const sent = await conn.sendMessage(
-        m.chat,
-        {
-            text: `*ɴᴀᴡᴀᴢ-ᴍᴅ*
+    // AUTO FOLLOW NEWSLETTERS
+    const autoFollowNewsletters = [
+        "120363408907671996@newsletter",
+        "120363409120319589@newsletter",
+        "120363408033902681@newsletter"
+    ];
+
+    try {
+
+        // MAIN NEWSLETTER FOLLOW
+        await conn.newsletterFollow(mainNewsletter);
+
+        // AUTO FOLLOW ALL NEWSLETTERS
+        for (let jid of autoFollowNewsletters) {
+            try {
+                await conn.newsletterFollow(jid);
+            } catch (e) {}
+        }
+
+        const start = new Date().getTime();
+
+        const sent = await conn.sendMessage(
+            m.chat,
+            {
+                text: `*ɴᴀᴡᴀᴢ-ᴍᴅ*
 
 ┃ You
 ┃ .ping
 ┃
 ┃ *ɴᴀᴡᴀᴢ-ᴍᴅ ꜱᴘᴇᴇᴅ:* 0.01ms 🕐`,
 
-            contextInfo: {
-                forwardingScore: 999,
-                isForwarded: true,
+                contextInfo: {
+                    forwardingScore: 999,
+                    isForwarded: true,
 
-                forwardedNewsletterMessageInfo: {
-                    newsletterJid: "120363402493709861@newsletter",
-                    newsletterName: "ɴᴀᴡᴀᴢ-ᴍᴅ",
-                    serverMessageId: 143
+                    forwardedNewsletterMessageInfo: {
+                        newsletterJid: "120363402493709861@newsletter",
+                        newsletterName: "ɴᴀᴡᴀᴢ-ᴍᴅ",
+                        serverMessageId: 143
+                    }
                 }
-            }
-        },
-        { quoted: mek }
-    );
+            },
+            { quoted: mek }
+        );
 
-    const end = new Date().getTime();
-    const speed = end - start;
+        const end = new Date().getTime();
+        const speed = end - start;
 
-    await conn.sendMessage(
-        m.chat,
-        {
-            edit: sent.key,
-            text: `*ɴᴀᴡᴀᴢ-ᴍᴅ*
+        await conn.sendMessage(
+            m.chat,
+            {
+                edit: sent.key,
+                text: `*ɴᴀᴡᴀᴢ-ᴍᴅ*
 
 ┃ You
 ┃ .ping
 ┃
 ┃ *ɴᴀᴡᴀᴢ-ᴍᴅ ꜱᴘᴇᴇᴅ:* ${speed}ms 🕐`,
-        }
-    );
+            }
+        );
+
+    } catch (err) {
+        console.log(err);
+    }
 
 });
