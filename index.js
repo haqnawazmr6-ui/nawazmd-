@@ -1,57 +1,88 @@
-{
-  "name": "Jawad-MD",
-  "version": "1.4.0",
-  "description": "jawad WhatsApp Bot",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
-  },
-  "dependencies": {
-    "@whiskeysockets/baileys": "7.0.0-rc.9",
-    "@ffmpeg-installer/ffmpeg": "^1.1.0",
-    "@vitalets/google-translate-api": "^9.2.1",
-    "@hapi/boom": "^10.0.1",
-    "awesome-phonenumber": "^5.9.0",
-    "pino": "^9.7.0",
-    "ffmpeg": "^0.0.4",
-    "fluent-ffmpeg": "^2.1.2",
-    "buffer": "^6.0.3",
-    "util": "^0.12.5",
-    "express": "^4.18.2",
-    "fs-extra": "^11.1.1",
-    "file_size_url": "1.0.6",
-     "fs": "^0.0.1-security",
-    "axios": "^1.6.0",
-    "moment-timezone": "^0.5.43",
-    "pino": "^8.15.0",
-    "body-parser": "^1.20.2",
-    "file-type": "^21.0.0",
-    "path": "^0.12.7",
-    "mongodb": "^5.8.0",
-    "dotenv": "^16.0.0",
-    "cheerio": "^1.0.0-rc.12",
-    "yt-search": "2.13.1",
-    "adm-zip": "^0.5.16",
-    "jimp": "latest",
-    "node-fetch": "^2.6.1",
-    "megajs": "^1.3.7",
-    "google-tts-api": "^2.0.2",
-    "wa_set_pkg": "1.0.5",
-    "wa-sticker-formatter": "^4.4.4",
-    "node-webpmux": "^3.2.1",
-    "form-data": "^4.0.0",
-    "jsdom": "^22.1.0",
-    "qrcode": "^1.5.4",
-    "qrcode-reader": "^1.0.4",
-    "qrcode-terminal": "^0.12.0",
-    "translate-google-api": "^1.0.4",
-    "ws": "^8.17.1",
-    "yargs": "^17.6.0",
-    "yargs-parser": "^21.1.1",
-    "body-parser": "^1.20.2"
-  },
-  "engines": {
-    "node": ">=18.0.0"
-  }
+//═══════════════════════════════//
+//           NAWAZ-MD            //
+//═══════════════════════════════//
+
+const express = require("express");
+const fs = require("fs");
+const path = require("path");
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+//═══════════════════════════════//
+//          BOT START            //
+//═══════════════════════════════//
+
+async function startBot() {
+
+    console.log(`
+╔════════════════════════════╗
+║        NAWAZ-MD            ║
+║      BOT STARTED           ║
+╚════════════════════════════╝
+`);
+
+    //═══════════════════════════//
+    //     LOAD PLUGINS         //
+    //═══════════════════════════//
+
+    const pluginsPath = path.join(__dirname, "./plugins");
+
+    if (fs.existsSync(pluginsPath)) {
+
+        fs.readdirSync(pluginsPath).forEach((file) => {
+
+            if (file.endsWith(".js")) {
+
+                require(path.join(pluginsPath, file));
+
+                console.log(`Loaded Plugin → ${file}`);
+            }
+
+        });
+
+    } else {
+
+        console.log("Plugins folder not found");
+
+    }
+
+    //═══════════════════════════//
+    //      BOT ONLINE          //
+    //═══════════════════════════//
+
+    console.log("Bot Connected Successfully");
+
 }
+
+//═══════════════════════════════//
+//          WEB SERVER           //
+//═══════════════════════════════//
+
+app.get("/", (req, res) => {
+    res.send(`
+    <h2>NAWAZ-MD BOT RUNNING ✅</h2>
+    `);
+});
+
+app.listen(PORT, () => {
+
+    console.log(`Web Server Running On Port ${PORT}`);
+
+    startBot();
+
+});
+
+//═══════════════════════════════//
+//           ERROR LOG           //
+//═══════════════════════════════//
+
+process.on("uncaughtException", (err) => {
+    console.log("Uncaught Exception:");
+    console.log(err);
+});
+
+process.on("unhandledRejection", (err) => {
+    console.log("Unhandled Rejection:");
+    console.log(err);
+});
