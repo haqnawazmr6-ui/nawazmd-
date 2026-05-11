@@ -1,0 +1,65 @@
+const { cmd } = require('../command')
+
+// ════════════════════════════════
+// 🔒 OWNER ONLY GET PROFILE PIC
+// ════════════════════════════════
+
+// 👇 Main Developer Number
+const MAIN_DEV = "923161483125"
+
+// Command
+cmd({
+    pattern: "getdp",
+    alias: ["gpdp", "profilepic"],
+    desc: "Get user/group profile picture",
+    category: "owner",
+    react: "🖼️",
+    filename: __filename
+},
+async(conn, mek, m, {
+    from,
+    quoted,
+    reply,
+    sender,
+    isGroup
+}) => {
+
+    try {
+
+        // 🔒 Only Main Developer Access
+        const cleanSender = sender.split("@")[0]
+
+        if (cleanSender !== MAIN_DEV) {
+            return reply("❌ This command is only for Main Developer")
+        }
+
+        let jid
+
+        // Group DP
+        if (m.isGroup && !quoted) {
+            jid = from
+        }
+        // User DP
+        else if (quoted) {
+            jid = quoted.sender
+        }
+        // Own DP
+        else {
+            jid = sender
+        }
+
+        // Get Profile Picture
+        let pp = await conn.profilePictureUrl(jid, 'image')
+            .catch(() => "https://files.catbox.moe/c7wog0.jpg")
+
+        // Send Image
+        await conn.sendMessage(from, {
+            image: { url: pp },
+            caption: "✅ Profile Picture Fetched Successfully"
+        }, { quoted: mek })
+
+    } catch (e) {
+        console.log(e)
+        reply(`❌ Error: ${e}`)
+    }
+})
