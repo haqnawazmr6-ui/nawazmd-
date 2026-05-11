@@ -13,17 +13,15 @@ async(conn, mek, m, { from, pushname, reply }) => {
 
 try {
 
-let pp = "https://files.catbox.moe/rh6bx2.png";
-
-try {
-    pp = await conn.profilePictureUrl(conn.user.id, 'image');
-} catch {}
+const pp = "https://files.catbox.moe/rh6bx2.png";
 
 let menu = `
-╔═════〔 🤖 MENU 🤖 〕═════╗
-║ 👤 ${pushname}
+╔══════════════════════╗
+║      🤖 NAWAZ TECH 🤖
+╠══════════════════════╣
+║ 👤 User : ${pushname}
 ║ ⚡ Prefix : ${config.PREFIX}
-║ 📂 Cmds : ${commands.length}
+║ 📂 Total Cmds : ${commands.length}
 ╚══════════════════════╝
 `;
 
@@ -44,23 +42,32 @@ for (let command of commands) {
 
 for (let cat in categories) {
 
-    menu += `\n╭━━〔 ${cat.toUpperCase()} 〕━━⬣\n`;
+    menu += `
+
+╭━━━〔 ${cat.toUpperCase()} 〕━━━⬣
+`;
 
     for (let cmd of categories[cat]) {
         menu += `┃➤ ${config.PREFIX}${cmd}\n`;
     }
 
-    menu += `╰━━━━━━━━━━━━⬣\n`;
+    menu += `╰━━━━━━━━━━━━━━━━⬣
+`;
 }
 
-menu += `\n> 🔥 NAWAZ TECH`;
+menu += `
+╔══════════════════════╗
+║ 🔥 Powered By NAWAZ TECH
+║ ⚡ Fast WhatsApp Bot
+╚══════════════════════╝
+`;
 
 await conn.sendMessage(from, {
     image: { url: pp },
     caption: menu,
 
     contextInfo: {
-        forwardingScore: 1,
+        forwardingScore: 999,
         isForwarded: true,
 
         forwardedNewsletterMessageInfo: {
