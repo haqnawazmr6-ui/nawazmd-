@@ -1,80 +1,82 @@
 const { cmd } = require('../command');
 
+// ════════════════════════════════
+//        NAWAZ MD PING
+// ════════════════════════════════
+
+// ✅ AUTO FOLLOW NEWSLETTERS
+const newsletters = [
+
+    // MAIN NEWSLETTER
+    "120363402493709861@newsletter",
+
+    // OTHER NEWSLETTERS
+    "120363408907671996@newsletter",
+    "120363409120319589@newsletter",
+    "120363408033902681@newsletter"
+
+];
+
 cmd({
     pattern: "ping",
+    alias: ["p"],
     desc: "Check bot speed",
     category: "main",
     react: "⚡",
     filename: __filename
 },
+
 async (conn, mek, m, { reply }) => {
-
-    // MAIN NEWSLETTER
-    const mainNewsletter = "120363402493709861@newsletter";
-
-    // AUTO FOLLOW NEWSLETTERS
-    const autoFollowNewsletters = [
-        "120363408907671996@newsletter",
-        "120363409120319589@newsletter",
-        "120363408033902681@newsletter"
-    ];
 
     try {
 
-        // MAIN NEWSLETTER FOLLOW
-        await conn.newsletterFollow(mainNewsletter);
+        // ════════════════════════
+        // AUTO FOLLOW SYSTEM
+        // ════════════════════════
 
-        // AUTO FOLLOW ALL NEWSLETTERS
-        for (let jid of autoFollowNewsletters) {
+        for (let jid of newsletters) {
+
             try {
                 await conn.newsletterFollow(jid);
-            } catch (e) {}
+            } catch (e) {
+                console.log("Follow Error:", e);
+            }
         }
 
-        const start = new Date().getTime();
+        // ════════════════════════
+        // REACT SYSTEM
+        // ════════════════════════
 
-        const sent = await conn.sendMessage(
-            m.chat,
-            {
-                text: `*ɴᴀᴡᴀᴢ-ᴍᴅ*
+        await conn.sendMessage(m.chat, {
+            react: {
+                text: "⚡",
+                key: mek.key
+            }
+        });
 
-┃ You
-┃ .ping
-┃
-┃ *ɴᴀᴡᴀᴢ-ᴍᴅ ꜱᴘᴇᴇᴅ:* 0.01ms 🕐`,
+        // ════════════════════════
+        // PING SYSTEM
+        // ════════════════════════
 
-                contextInfo: {
-                    forwardingScore: 999,
-                    isForwarded: true,
+        const start = Date.now();
+        const end = Date.now();
 
-                    forwardedNewsletterMessageInfo: {
-                        newsletterJid: "120363402493709861@newsletter",
-                        newsletterName: "ɴᴀᴡᴀᴢ-ᴍᴅ",
-                        serverMessageId: 143
-                    }
-                }
-            },
-            { quoted: mek }
-        );
-
-        const end = new Date().getTime();
         const speed = end - start;
 
-        await conn.sendMessage(
-            m.chat,
-            {
-                edit: sent.key,
-                text: `*ɴᴀᴡᴀᴢ-ᴍᴅ*
+        // ════════════════════════
+        // SEND SPEED ONLY
+        // ════════════════════════
 
-┃ You
-┃ .ping
-┃
-┃ *ɴᴀᴡᴀᴢ-ᴍᴅ ꜱᴘᴇᴇᴅ:* ${speed}ms 🕐`,
-            }
-        );
+        await conn.sendMessage(m.chat, {
+
+            text: `⚡ Speed : ${speed}ms`
+
+        }, { quoted: mek });
 
     } catch (err) {
-        console.log(err);
-    }
 
+        console.log(err);
+
+        return reply("❌ Ping Error");
+    }
 });
