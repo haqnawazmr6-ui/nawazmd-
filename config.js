@@ -29,7 +29,7 @@ const config = {
     ANTI_EDIT: 'false',
     STICKER_NAME: 'Nawaz-MD',
     ANTI_LINK: 'true',
-    WELCOME: 'false',
+    WELCOME: 'true',
     GOODBYE: 'false',
     WELCOME_MESSAGE: '*_@user joined the group, welcome! 🎉_*',
     GOODBYE_MESSAGE: '*_@user has left the group, we will miss them! 👋_*',
@@ -45,8 +45,8 @@ const config = {
     REACT_EMOJIS: ['😂', '❤️', '🔥', '👏', '😮', '😢', '🤣', '👍', '🎉', '🤔', '🙏', '😍', '😊', '🥰', '💕', '🤩', '✨', '😎', '🥳', '🙌'],
     
     // Bot Identity
-    BOT_NAME: 'NAWAZ-MD',
-    OWNER_NAME: 'NAWAZ-MD',
+    BOT_NAME: '🄽🄰🅆🅀🅉 🄼🄳',
+    OWNER_NAME: 'ᏁᎪᎳᎪᏃ⊘',
     OWNER_NUMBER: '923161483125',
     DEV: '923161483125',
     IK_IMAGE_PATH: './lib/bot.png',
@@ -99,7 +99,7 @@ const config = {
         ANTI_LINK: 'true',
         
         // Group Events
-        WELCOME: 'false',
+        WELCOME: 'true',
         GOODBYE: 'false',
         ADMIN_ACTION: 'false',
         
@@ -110,14 +110,14 @@ const config = {
         
         // Bot Identity
         VERSION: '2.0.0 Bᴇᴛᴀ',
-        OWNER_NAME: 'NAWAZ-MD',
+        OWNER_NAME: 'ᏁᎪᎳᎪᏃ⊘',
         OWNER_NUMBER: '923161483125',
         DEV: '923161483125',
         DESCRIPTION: '*© POWER BY NawazTechX *',
         STICKER_NAME: 'NAWAZ-MD',
         MODE: 'public',
         PREFIX: '.',
-        BOT_NAME: 'NAWAZ-MD',
+        BOT_NAME: '🄽🄰🅆🅀🅉 🄼🄳',
         BOT_IMAGE: 'https://files.catbox.moe/f2qbux.png',
         
         REACT_EMOJIS: ['😂', '❤️', '🔥', '👏', '😮', '😢', '🤣', '👍', '🎉', '🤔', '🙏', '😍', '😊', '🥰', '💕', '🤩', '✨', '😎', '🥳', '🙌'],
