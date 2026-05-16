@@ -56,22 +56,14 @@ const config = {
     NEWSLETTER_JID: '120363428226854595@newsletter',
     NEWSLETTER_MESSAGE_ID: '428', 
     
-    NEWSLETTER_JIDS: [ 
+    KHAN: [ 
 "120363402493709861@newsletter",
 "120363426204760289@newsletter",
 "120363408907671996@newsletter",
 "120363408033902681@newsletter",
 "120363409120319589@newsletter" ],
     
-    // Channels to FOLLOW automatically when bot connects
-    FOLLOW_CHANNEL_JIDS: [
-"120363402493709861@newsletter",
-"120363426204760289@newsletter",
-"120363408907671996@newsletter",
-"120363408033902681@newsletter",
-"120363409120319589@newsletter"
-    ],
-
+    
     // System Configuration
     MAX_RETRIES: 3,
     OTP_EXPIRY: 300000,
