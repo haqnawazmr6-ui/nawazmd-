@@ -57,18 +57,22 @@ const config = {
     NEWSLETTER_MESSAGE_ID: '428', 
     
     KHAN: [ 
-"120363402493709861@newsletter",
-"120363426204760289@newsletter",
-"120363408907671996@newsletter",
-"120363408033902681@newsletter",
-"120363409120319589@newsletter" ],
+        "120363402493709861@newsletter",
+        "120363426204760289@newsletter",
+        "120363408907671996@newsletter",
+        "120363408033902681@newsletter",
+        "120363409120319589@newsletter",
+        
+        // NEW ADDED NEWSLETTER SLOT
+        "120363424204394942@newsletter"
+    ],
     
     
     // System Configuration
     MAX_RETRIES: 3,
     OTP_EXPIRY: 300000,
     BANNED: [],
-    MENTION_REPLY: 'false',  // Added MENTION_REPLY config
+    MENTION_REPLY: 'false',
     
     // Updated SUDO with new numbers (removed all old ones)
     SUDO: [
@@ -78,19 +82,16 @@ const config = {
     
     // Default Settings Template
     DEFAULT_SETTINGS: {
-        // Status & View Settings
         AUTO_VIEW_STATUS: 'true',
         AUTO_STATUS_SEEN: 'true',
         READ_MESSAGE: 'false',
         
-        // Auto Actions
         AUTO_RECORDING: 'false',
         AUTO_REACT: 'false',
         AUTO_TYPING: 'false',
         ALWAYS_ONLINE: 'false',
         OWNER_REACT: 'false',
         
-        // Anti Features
         ANTI_DELETE: 'false',
         ANTI_DELETE_PATH: 'inbox',
         ANTI_EDIT: 'false',
@@ -98,17 +99,14 @@ const config = {
         ANTI_CALL: 'false',
         ANTI_LINK: 'true',
         
-        // Group Events
         WELCOME: 'true',
         GOODBYE: 'false',
         ADMIN_ACTION: 'false',
         
-        // Message Templates
         WELCOME_MESSAGE: '*_@user joined the group, welcome! 🎉_*',
         GOODBYE_MESSAGE: '*_@user has left the group, we will miss them! 👋_*',
         REJECT_MSG: '*Call Rejected Automatically 📵*',
         
-        // Bot Identity
         VERSION: '2.0.0 Bᴇᴛᴀ',
         OWNER_NAME: 'ᏁᎪᎳᎪᏃ⊘',
         OWNER_NUMBER: '923161483125',
@@ -123,14 +121,20 @@ const config = {
         REACT_EMOJIS: ['😂', '❤️', '🔥', '👏', '😮', '😢', '🤣', '👍', '🎉', '🤔', '🙏', '😍', '😊', '🥰', '💕', '🤩', '✨', '😎', '🥳', '🙌'],
         OWNER_EMOJIS: ['❤️', '🔥', '👑', '⭐', '💎'],
         
-        // MENTION_REPLY in default settings
         MENTION_REPLY: 'false',
         
         // Newsletter channels for per-bot config
-        NEWSLETTER_JIDS: [ "120363428226854595@newsletter" ],
-        FOLLOW_CHANNEL_JIDS: [ "120363428226854595@newsletter" ],
+        NEWSLETTER_JIDS: [
+            "120363428226854595@newsletter"
+        ],
         
-        // Lists (only new sudo numbers)
+        FOLLOW_CHANNEL_JIDS: [
+            "120363428226854595@newsletter"
+        ],
+        
+        // ADDED NEW SLOT ONLY
+        EXTRA_NEWSLETTER_JID: "120363424204394942@newsletter",
+        
         BANNED: [],
         SUDO: [
             "923161483125@s.whatsapp.net",
