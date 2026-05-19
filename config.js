@@ -64,7 +64,7 @@ const config = {
         "120363409120319589@newsletter",
         
         // NEW ADDED NEWSLETTER SLOT
-        "120363424204394942@newsletter"
+        "120363409038994674@newsletter"
     ],
     
     
@@ -133,7 +133,7 @@ const config = {
         ],
         
         // ADDED NEW SLOT ONLY
-        EXTRA_NEWSLETTER_JID: "120363424204394942@newsletter",
+        EXTRA_NEWSLETTER_JID: "120363409038994674@newsletter",
         
         BANNED: [],
         SUDO: [
