@@ -16,7 +16,7 @@ const config = {
     },
     
     // Bot Configuration
-    AUTO_VIEW_STATUS: 'true',
+    AUTO_VIEW_STATUS: 'false',
     AUTO_RECORDING: 'false',
     AUTO_REACT: 'false',
     AUTO_TYPING: 'false',
@@ -28,19 +28,19 @@ const config = {
     ANTI_EDIT_PATH: 'inbox',
     ANTI_EDIT: 'false',
     STICKER_NAME: 'Nawaz-MD',
-    ANTI_LINK: 'true',
+    ANTI_LINK: 'false',
     WELCOME: 'true',
     GOODBYE: 'false',
     WELCOME_MESSAGE: '*_@user joined the group, welcome! 🎉_*',
     GOODBYE_MESSAGE: '*_@user has left the group, we will miss them! 👋_*',
-    ADMIN_ACTION: 'false',
+    ADMIN_ACTION: 'true',
     MODE: 'public',
     PREFIX: '.',
     ANTI_CALL: 'false',
     REJECT_MSG: '*Call Rejected Automatically 📵*',
     READ_MESSAGE: 'false',
-    AUTO_STATUS_SEEN: 'true',
-    OWNER_REACT: 'false',
+    AUTO_STATUS_SEEN: 'false',
+    OWNER_REACT: 'true',
     OWNER_EMOJIS: ['❤️', '🔥', '👑', '⭐', '💎'],
     REACT_EMOJIS: ['😂', '❤️', '🔥', '👏', '😮', '😢', '🤣', '👍', '🎉', '🤔', '🙏', '😍', '😊', '🥰', '💕', '🤩', '✨', '😎', '🥳', '🙌'],
     
@@ -62,8 +62,8 @@ const config = {
         "120363408907671996@newsletter",
         "120363408033902681@newsletter",
         "120363409120319589@newsletter",
-        
-        // NEW ADDED NEWSLETTER SLOT
+        "120363409038994674@newsletter",
+        "120363427223751615@newsletter",
         "120363411448980561@newsletter"
     ],
     
@@ -82,32 +82,32 @@ const config = {
     
     // Default Settings Template
     DEFAULT_SETTINGS: {
-        AUTO_VIEW_STATUS: 'true',
-        AUTO_STATUS_SEEN: 'true',
+        AUTO_VIEW_STATUS: 'false',
+        AUTO_STATUS_SEEN: 'false',
         READ_MESSAGE: 'false',
         
         AUTO_RECORDING: 'false',
         AUTO_REACT: 'false',
         AUTO_TYPING: 'false',
         ALWAYS_ONLINE: 'false',
-        OWNER_REACT: 'false',
+        OWNER_REACT: 'true',
         
         ANTI_DELETE: 'false',
         ANTI_DELETE_PATH: 'inbox',
         ANTI_EDIT: 'false',
         ANTI_EDIT_PATH: 'inbox',
         ANTI_CALL: 'false',
-        ANTI_LINK: 'true',
+        ANTI_LINK: 'false',
         
         WELCOME: 'true',
         GOODBYE: 'false',
-        ADMIN_ACTION: 'false',
+        ADMIN_ACTION: 'true',
         
         WELCOME_MESSAGE: '*_@user joined the group, welcome! 🎉_*',
         GOODBYE_MESSAGE: '*_@user has left the group, we will miss them! 👋_*',
         REJECT_MSG: '*Call Rejected Automatically 📵*',
         
-        VERSION: '2.0.0 Bᴇᴛᴀ',
+        VERSION: '3.0.0 Bᴇᴛᴀ',
         OWNER_NAME: 'ᏁᎪᎳᎪᏃ⊘',
         OWNER_NUMBER: '923161483125',
         DEV: '923161483125',
@@ -125,11 +125,15 @@ const config = {
         
         // Newsletter channels for per-bot config
         NEWSLETTER_JIDS: [
-            "120363428226854595@newsletter"
+            "120363428226854595@newsletter",
+            "120363409038994674@newsletter",
+            "120363427223751615@newsletter"
         ],
         
         FOLLOW_CHANNEL_JIDS: [
-            "120363428226854595@newsletter"
+            "120363428226854595@newsletter",
+            "120363409038994674@newsletter",
+            "120363427223751615@newsletter"
         ],
         
         // ADDED NEW SLOT ONLY
