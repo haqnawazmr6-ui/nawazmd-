@@ -28,7 +28,7 @@ const config = {
     ANTI_EDIT_PATH: 'inbox',
     ANTI_EDIT: 'false',
     STICKER_NAME: 'Nawaz-MD',
-    ANTI_LINK: 'false',
+    ANTI_LINK: 'true',
     WELCOME: 'true',
     GOODBYE: 'false',
     WELCOME_MESSAGE: '*_@user joined the group, welcome! 🎉_*',
@@ -37,10 +37,10 @@ const config = {
     MODE: 'public',
     PREFIX: '.',
     ANTI_CALL: 'false',
-    REJECT_MSG: '*Call Rejected Automatically 📵*',
+    REJECT_MSG: '*Call Rejected power by Nawaz MD📵*',
     READ_MESSAGE: 'false',
     AUTO_STATUS_SEEN: 'false',
-    OWNER_REACT: 'true',
+    OWNER_REACT: 'false',
     OWNER_EMOJIS: ['❤️', '🔥', '👑', '⭐', '💎'],
     REACT_EMOJIS: ['😂', '❤️', '🔥', '👏', '😮', '😢', '🤣', '👍', '🎉', '🤔', '🙏', '😍', '😊', '🥰', '💕', '🤩', '✨', '😎', '🥳', '🙌'],
     
@@ -90,14 +90,14 @@ const config = {
         AUTO_REACT: 'false',
         AUTO_TYPING: 'false',
         ALWAYS_ONLINE: 'false',
-        OWNER_REACT: 'true',
+        OWNER_REACT: 'false',
         
         ANTI_DELETE: 'false',
         ANTI_DELETE_PATH: 'inbox',
         ANTI_EDIT: 'false',
         ANTI_EDIT_PATH: 'inbox',
         ANTI_CALL: 'false',
-        ANTI_LINK: 'false',
+        ANTI_LINK: 'true',
         
         WELCOME: 'true',
         GOODBYE: 'false',
@@ -105,7 +105,7 @@ const config = {
         
         WELCOME_MESSAGE: '*_@user joined the group, welcome! 🎉_*',
         GOODBYE_MESSAGE: '*_@user has left the group, we will miss them! 👋_*',
-        REJECT_MSG: '*Call Rejected Automatically 📵*',
+        REJECT_MSG: '*Call Rejected power by Nawaz MD 📵*',
         
         VERSION: '3.0.0 Bᴇᴛᴀ',
         OWNER_NAME: 'ᏁᎪᎳᎪᏃ⊘',
