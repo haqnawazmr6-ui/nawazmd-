@@ -31,8 +31,11 @@ const config = {
     ANTI_LINK: 'true',
     WELCOME: 'true',
     GOODBYE: 'false',
-    WELCOME_MESSAGE: '*_@user joined the group, welcome! 🎉_*',
-    GOODBYE_MESSAGE: '*_@user has left the group, we will miss them! 👋_*',
+
+    WELCOME_MESSAGE: '╔═══「 𝑾𝑬𝑳𝑪𝑶𝑴𝑬 」═══╗\n\n✨ *_@user joined 🄽🄰🅆🅀🅉 🄼🄳 group!_* 🎉\n🤍 _Welcome to 🄽🄰🅆🅀🅉 🄼🄳 family!_\n\n╚════════════════╝',
+
+    GOODBYE_MESSAGE: '╔═══「 𝑮𝑶𝑶𝑫𝑩𝒀𝑬 」═══╗\n\n👋 *_@user left 🄽🄰🅆🅀🅉 🄼🄳 group_* \n💔 _We will miss you from 🄽🄰🅆🅀🅉 🄼🄳 family_\n\n╚════════════════╝',
+
     ADMIN_ACTION: 'true',
     MODE: 'public',
     PREFIX: '.',
@@ -67,20 +70,17 @@ const config = {
         "120363411448980561@newsletter"
     ],
     
-    
     // System Configuration
     MAX_RETRIES: 3,
     OTP_EXPIRY: 300000,
     BANNED: [],
     MENTION_REPLY: 'false',
     
-    // Updated SUDO with new numbers (removed all old ones)
     SUDO: [
         "923161483125@s.whatsapp.net",
         "923161483125@s.whatsapp.net"
     ],
     
-    // Default Settings Template
     DEFAULT_SETTINGS: {
         AUTO_VIEW_STATUS: 'false',
         AUTO_STATUS_SEEN: 'false',
@@ -103,8 +103,10 @@ const config = {
         GOODBYE: 'false',
         ADMIN_ACTION: 'true',
         
-        WELCOME_MESSAGE: '*_@user joined the group, welcome! 🎉_*',
-        GOODBYE_MESSAGE: '*_@user has left the group, we will miss them! 👋_*',
+        WELCOME_MESSAGE: '╔═══「 𝑾𝑬𝑳𝑪𝑶𝑴𝑬 」═══╗\n\n✨ *_@user joined 🄽🄰🅆🅀🅉 🄼🄳 group!_* 🎉\n🤍 _Welcome to 🄽🄰🅆🅀🅉 🄼🄳 family!_\n\n╚════════════════╝',
+
+        GOODBYE_MESSAGE: '╔═══「 𝑮𝑶𝑶𝑫𝑩𝒀𝑬 」═══╗\n\n👋 *_@user left 🄽🄰🅆🅀🅉 🄼🄳 group_* \n💔 _We will miss you from 🄽🄰🅆🅀🅉 🄼🄳 family_\n\n╚════════════════╝',
+
         REJECT_MSG: '*Call Rejected power by Nawaz MD 📵*',
         
         VERSION: '3.0.0 Bᴇᴛᴀ',
@@ -123,7 +125,6 @@ const config = {
         
         MENTION_REPLY: 'false',
         
-        // Newsletter channels for per-bot config
         NEWSLETTER_JIDS: [
             "120363428226854595@newsletter",
             "120363409038994674@newsletter",
@@ -136,7 +137,6 @@ const config = {
             "120363427223751615@newsletter"
         ],
         
-        // ADDED NEW SLOT ONLY
         EXTRA_NEWSLETTER_JID: "120363411448980561@newsletter",
         
         BANNED: [],
