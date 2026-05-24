@@ -53,7 +53,7 @@ const config = {
     OWNER_NUMBER: '923161483125',
     DEV: '923161483125',
     IK_IMAGE_PATH: './lib/bot.png',
-    BOT_IMAGE: 'https://files.catbox.moe/f2qbux.png',
+    BOT_IMAGE: 'https://files.catbox.moe/mxusia.png',
     
     // Newsletter Configuration
     NEWSLETTER_JID: '120363428226854595@newsletter',
@@ -118,7 +118,7 @@ const config = {
         MODE: 'public',
         PREFIX: '.',
         BOT_NAME: '🄽🄰🅆🅀🅉 🄼🄳',
-        BOT_IMAGE: 'https://files.catbox.moe/f2qbux.png',
+        BOT_IMAGE: 'https://files.catbox.moe/mxusia.png',
         
         REACT_EMOJIS: ['😂', '❤️', '🔥', '👏', '😮', '😢', '🤣', '👍', '🎉', '🤔', '🙏', '😍', '😊', '🥰', '💕', '🤩', '✨', '😎', '🥳', '🙌'],
         OWNER_EMOJIS: ['❤️', '🔥', '👑', '⭐', '💎'],
