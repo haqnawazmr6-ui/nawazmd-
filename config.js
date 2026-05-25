@@ -32,7 +32,7 @@ const config = {
     WELCOME: 'true',
     GOODBYE: 'false',
 
-    WELCOME_MESSAGE: '╔═══「 𝑾𝑬𝑳𝑪𝑶𝑴𝑬 」═══╗\n\n✨ *_@user joined 🄽🄰🅆🅀🅉 🄼🄳 group!_* 🎉\n🤍 _Welcome to 🄽🄰🅆🅀🅉 🄼🄳 family!_\n\n╚════════════════╝',
+    WELCOME_MESSAGE: '┏━━━━━━━━━━━━━━━┓\n      💖 𝑾𝑬𝑳𝑪𝑶𝑴𝑬 💖\n┗━━━━━━━━━━━━━━━┛\n\n👤 Name ➜ @user\n🏷️ Group ➜ @subject\n🤖 Powered ➜ 🄽🄰🅆🄰🅉 🄼🄳\n⏰ Join Time ➜ %time%\n📅 Today ➜ %date%\n\n✨ Welcome To Our Amazing Family\n🌸 Respect Everyone & Have Fun\n💫 Stay Active Everyday',
 
     GOODBYE_MESSAGE: '╔═══「 𝑮𝑶𝑶𝑫𝑩𝒀𝑬 」═══╗\n\n👋 *_@user left 🄽🄰🅆🅀🅉 🄼🄳 group_* \n💔 _We will miss you from 🄽🄰🅆🅀🅉 🄼🄳 family_\n\n╚════════════════╝',
 
@@ -48,12 +48,12 @@ const config = {
     REACT_EMOJIS: ['😂', '❤️', '🔥', '👏', '😮', '😢', '🤣', '👍', '🎉', '🤔', '🙏', '😍', '😊', '🥰', '💕', '🤩', '✨', '😎', '🥳', '🙌'],
     
     // Bot Identity
-    BOT_NAME: '🄽🄰🅆🅀🅉 🄼🄳',
+    BOT_NAME: '🄽🄰🅆🄰🅉 🄼🄳',
     OWNER_NAME: 'ᏁᎪᎳᎪᏃ⊘',
     OWNER_NUMBER: '923161483125',
     DEV: '923161483125',
     IK_IMAGE_PATH: './lib/bot.png',
-    BOT_IMAGE: 'https://files.catbox.moe/mxusia.png',
+    BOT_IMAGE: 'https://files.catbox.moe/f2qbux.png',
     
     // Newsletter Configuration
     NEWSLETTER_JID: '120363428226854595@newsletter',
@@ -103,7 +103,7 @@ const config = {
         GOODBYE: 'false',
         ADMIN_ACTION: 'true',
         
-        WELCOME_MESSAGE: '╔═══「 𝑾𝑬𝑳𝑪𝑶𝑴𝑬 」═══╗\n\n✨ *_@user joined 🄽🄰🅆🅀🅉 🄼🄳 group!_* 🎉\n🤍 _Welcome to 🄽🄰🅆🅀🅉 🄼🄳 family!_\n\n╚════════════════╝',
+        WELCOME_MESSAGE: '┏━━━━━━━━━━━━━━━┓\n      💖 𝑾𝑬𝑳𝑪𝑶𝑴𝑬 💖\n┗━━━━━━━━━━━━━━━┛\n\n👤 Name ➜ @user\n🏷️ Group ➜ @subject\n🤖 Powered ➜ 🄽🄰🅆🄰🅉 🄼🄳\n⏰ Join Time ➜ %time%\n📅 Today ➜ %date%\n\n✨ Welcome To Our Amazing Family\n🌸 Respect Everyone & Have Fun\n💫 Stay Active Everyday',
 
         GOODBYE_MESSAGE: '╔═══「 𝑮𝑶𝑶𝑫𝑩𝒀𝑬 」═══╗\n\n👋 *_@user left 🄽🄰🅆🅀🅉 🄼🄳 group_* \n💔 _We will miss you from 🄽🄰🅆🅀🅉 🄼🄳 family_\n\n╚════════════════╝',
 
@@ -117,8 +117,8 @@ const config = {
         STICKER_NAME: 'NAWAZ-MD',
         MODE: 'public',
         PREFIX: '.',
-        BOT_NAME: '🄽🄰🅆🅀🅉 🄼🄳',
-        BOT_IMAGE: 'https://files.catbox.moe/mxusia.png',
+        BOT_NAME: '🄽🄰🅆🄰🅉 🄼🄳',
+        BOT_IMAGE: 'https://files.catbox.moe/f2qbux.png',
         
         REACT_EMOJIS: ['😂', '❤️', '🔥', '👏', '😮', '😢', '🤣', '👍', '🎉', '🤔', '🙏', '😍', '😊', '🥰', '💕', '🤩', '✨', '😎', '🥳', '🙌'],
         OWNER_EMOJIS: ['❤️', '🔥', '👑', '⭐', '💎'],
