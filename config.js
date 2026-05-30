@@ -49,7 +49,7 @@ const config = {
     
     // Bot Identity
     BOT_NAME: '🄽🄰🅆🄰🅉 🄼🄳',
-    OWNER_NAME: 'ᏁᎪᎳᎪᏃ⊘',
+    OWNER_NAME: 'ᏁᎪᎳᎪᏃ',
     OWNER_NUMBER: '923161483125',
     DEV: '923161483125',
     IK_IMAGE_PATH: './lib/bot.png',
@@ -110,7 +110,7 @@ const config = {
         REJECT_MSG: '*Call Rejected power by Nawaz MD 📵*',
         
         VERSION: '3.0.0 Bᴇᴛᴀ',
-        OWNER_NAME: 'ᏁᎪᎳᎪᏃ⊘',
+        OWNER_NAME: 'ᏁᎪᎳᎪᏃ',
         OWNER_NUMBER: '923161483125',
         DEV: '923161483125',
         DESCRIPTION: '*© POWER BY NawazTechX *',
