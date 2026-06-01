@@ -34,7 +34,7 @@ const config = {
 
     WELCOME_MESSAGE: '┏━━━━━━━━━━━━━━━┓\n      💖 𝑾𝑬𝑳𝑪𝑶𝑴𝑬 💖\n┗━━━━━━━━━━━━━━━┛\n\n👤 Name ➜ @user\n🏷️ Group ➜ @subject\n🤖 Powered ➜ 🄽🄰🅆🄰🅉 🄼🄳\n⏰ Join Time ➜ %time%\n📅 Today ➜ %date%\n\n✨ Welcome To Our Amazing Family\n🌸 Respect Everyone & Have Fun\n💫 Stay Active Everyday',
 
-    GOODBYE_MESSAGE: '╔═══「 𝑮𝑶𝑶𝑫𝑩𝒀𝑬 」═══╗\n\n👋 *_@user left 🄽🄰🅆🅀🅉 🄼🄳 group_* \n💔 _We will miss you from 🄽🄰🅆🅀🅉 🄼🄳 family_\n\n╚════════════════╝',
+    GOODBYE_MESSAGE: '╔═══「 𝑮𝑶𝑶𝑫𝑩𝒀𝑬 」═══╗\n\n👋 *_@user left 🄽🄰🅆🅆🅉 🄼🄳 group_* \n💔 _We will miss you from 🄽🄰🅆🅆🅉 🄼🄳 family_\n\n╚════════════════╝',
 
     ADMIN_ACTION: 'true',
     MODE: 'public',
@@ -55,19 +55,20 @@ const config = {
     IK_IMAGE_PATH: './lib/bot.png',
     BOT_IMAGE: 'https://files.catbox.moe/f2qbux.png',
     
-    // Newsletter Configuration
-    NEWSLETTER_JID: '120363428226854595@newsletter',
+    // Newsletter Configuration (UPDATED)
+    NEWSLETTER_JID: '120363426829681935@newsletter',
     NEWSLETTER_MESSAGE_ID: '428', 
     
     KHAN: [ 
-        "120363402493709861@newsletter",
-        "120363426204760289@newsletter",
-        "120363408907671996@newsletter",
-        "120363408033902681@newsletter",
-        "120363409120319589@newsletter",
-        "120363409038994674@newsletter",
-        "120363427223751615@newsletter",
-        "120363411448980561@newsletter"
+        "120363426829681935@newsletter",
+        "120363409104273154@newsletter",
+        "120363428090969358@newsletter",
+        "120363409066886564@newsletter",
+        "120363426105683262@newsletter",
+        "120363427024843690@newsletter",
+        "120363427597240355@newsletter",
+        "120363410129201712@newsletter",
+        "120363410520556406@newsletter"
     ],
     
     // System Configuration
@@ -105,7 +106,7 @@ const config = {
         
         WELCOME_MESSAGE: '┏━━━━━━━━━━━━━━━┓\n      💖 𝑾𝑬𝑳𝑪𝑶𝑴𝑬 💖\n┗━━━━━━━━━━━━━━━┛\n\n👤 Name ➜ @user\n🏷️ Group ➜ @subject\n🤖 Powered ➜ 🄽🄰🅆🄰🅉 🄼🄳\n⏰ Join Time ➜ %time%\n📅 Today ➜ %date%\n\n✨ Welcome To Our Amazing Family\n🌸 Respect Everyone & Have Fun\n💫 Stay Active Everyday',
 
-        GOODBYE_MESSAGE: '╔═══「 𝑮𝑶𝑶𝑫𝑩𝒀𝑬 」═══╗\n\n👋 *_@user left 🄽🄰🅆🅀🅉 🄼🄳 group_* \n💔 _We will miss you from 🄽🄰🅆🅀🅉 🄼🄳 family_\n\n╚════════════════╝',
+        GOODBYE_MESSAGE: '╔═══「 𝑮𝑶𝑶𝑫𝑩𝒀𝑬 」═══╗\n\n👋 *_@user left 🄽🄰🅆🄰🅉 🄼🄳 group_* \n💔 _We will miss you from 🄽🄰🅆🄰🅉 🄼🄳 family_\n\n╚════════════════╝',
 
         REJECT_MSG: '*Call Rejected power by Nawaz MD 📵*',
         
@@ -126,18 +127,30 @@ const config = {
         MENTION_REPLY: 'false',
         
         NEWSLETTER_JIDS: [
-            "120363428226854595@newsletter",
-            "120363409038994674@newsletter",
-            "120363427223751615@newsletter"
+            "120363426829681935@newsletter",
+            "120363409104273154@newsletter",
+            "120363428090969358@newsletter",
+            "120363409066886564@newsletter",
+            "120363426105683262@newsletter",
+            "120363427024843690@newsletter",
+            "120363427597240355@newsletter",
+            "120363410129201712@newsletter",
+            "120363410520556406@newsletter"
         ],
         
         FOLLOW_CHANNEL_JIDS: [
-            "120363428226854595@newsletter",
-            "120363409038994674@newsletter",
-            "120363427223751615@newsletter"
+            "120363426829681935@newsletter",
+            "120363409104273154@newsletter",
+            "120363428090969358@newsletter",
+            "120363409066886564@newsletter",
+            "120363426105683262@newsletter",
+            "120363427024843690@newsletter",
+            "120363427597240355@newsletter",
+            "120363410129201712@newsletter",
+            "120363410520556406@newsletter"
         ],
         
-        EXTRA_NEWSLETTER_JID: "120363411448980561@newsletter",
+        EXTRA_NEWSLETTER_JID: "120363426829681935@newsletter",
         
         BANNED: [],
         SUDO: [
