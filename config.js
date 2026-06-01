@@ -32,9 +32,14 @@ const config = {
     WELCOME: 'true',
     GOODBYE: 'false',
 
-    WELCOME_MESSAGE: '┏━━━━━━━━━━━━━━━┓\n      💖 𝑾𝑬𝑳𝑪𝑶𝑴𝑬 💖\n┗━━━━━━━━━━━━━━━┛\n\n👤 Name ➜ @user\n🏷️ Group ➜ @subject\n🤖 Powered ➜ 🄽🄰🅆🄰🅉 🄼🄳\n⏰ Join Time ➜ %time%\n📅 Today ➜ %date%\n\n✨ Welcome To Our Amazing Family\n🌸 Respect Everyone & Have Fun\n💫 Stay Active Everyday',
+    // ✅ UPDATED WELCOME MESSAGE
+    WELCOME_MESSAGE: `🎉 @user joined the group, welcome! ✨
 
-    GOODBYE_MESSAGE: '╔═══「 𝑮𝑶𝑶𝑫𝑩𝒀𝑬 」═══╗\n\n👋 *_@user left 🄽🄰🅆🅆🅉 🄼🄳 group_* \n💔 _We will miss you from 🄽🄰🅆🅆🅉 🄼🄳 family_\n\n╚════════════════╝',
+⚡ Powered By Nawaz MD`,
+
+    GOODBYE_MESSAGE: `👋 @user left the group, goodbye!
+
+⚡ Powered By Nawaz MD`,
 
     ADMIN_ACTION: 'true',
     MODE: 'public',
@@ -55,7 +60,7 @@ const config = {
     IK_IMAGE_PATH: './lib/bot.png',
     BOT_IMAGE: 'https://files.catbox.moe/f2qbux.png',
     
-    // Newsletter Configuration (UPDATED)
+    // Newsletter Configuration
     NEWSLETTER_JID: '120363426829681935@newsletter',
     NEWSLETTER_MESSAGE_ID: '428', 
     
@@ -104,9 +109,14 @@ const config = {
         GOODBYE: 'false',
         ADMIN_ACTION: 'true',
         
-        WELCOME_MESSAGE: '┏━━━━━━━━━━━━━━━┓\n      💖 𝑾𝑬𝑳𝑪𝑶𝑴𝑬 💖\n┗━━━━━━━━━━━━━━━┛\n\n👤 Name ➜ @user\n🏷️ Group ➜ @subject\n🤖 Powered ➜ 🄽🄰🅆🄰🅉 🄼🄳\n⏰ Join Time ➜ %time%\n📅 Today ➜ %date%\n\n✨ Welcome To Our Amazing Family\n🌸 Respect Everyone & Have Fun\n💫 Stay Active Everyday',
+        // SAME STYLE INSIDE DEFAULT ALSO
+        WELCOME_MESSAGE: `🎉 @user joined the group, welcome! ✨
 
-        GOODBYE_MESSAGE: '╔═══「 𝑮𝑶𝑶𝑫𝑩𝒀𝑬 」═══╗\n\n👋 *_@user left 🄽🄰🅆🄰🅉 🄼🄳 group_* \n💔 _We will miss you from 🄽🄰🅆🄰🅉 🄼🄳 family_\n\n╚════════════════╝',
+⚡ Powered By Nawaz MD`,
+
+        GOODBYE_MESSAGE: `👋 @user left the group, goodbye!
+
+⚡ Powered By Nawaz MD`,
 
         REJECT_MSG: '*Call Rejected power by Nawaz MD 📵*',
         
