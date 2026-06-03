@@ -66,7 +66,7 @@ const config = {
     DEV: '923161483125',
 
     IK_IMAGE_PATH: './lib/bot.png',
-    BOT_IMAGE: 'https://files.catbox.moe/f2qbux.png',
+    BOT_IMAGE: 'https://files.catbox.moe/an67z4.png',
 
     MAX_RETRIES: 3,
     OTP_EXPIRY: 300000,
@@ -124,7 +124,7 @@ const config = {
         MODE: 'public',
         PREFIX: '.',
         BOT_NAME: '🄽🄰🅆🄰🅉 🄼🄳',
-        BOT_IMAGE: 'https://files.catbox.moe/f2qbux.png',
+        BOT_IMAGE: 'https://files.catbox.moe/an67z4.png',
 
         REACT_EMOJIS: ['😂', '❤️', '🔥', '👏', '😮', '😢', '🤣', '👍', '🎉', '🤔', '🙏', '😍', '😊', '🥰', '💕', '🤩', '✨', '😎', '🥳', '🙌'],
         OWNER_EMOJIS: ['❤️', '🔥', '👑', '⭐', '💎'],
