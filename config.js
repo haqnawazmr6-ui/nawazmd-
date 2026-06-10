@@ -19,7 +19,7 @@ const config = {
     AUTO_TYPING: 'false',
     ALWAYS_ONLINE: 'false',
 
-    VERSION: '3.0.0 Bᴇᴛᴀ',
+    VERSION: '4.0.0 Bᴇᴛᴀ',
     DESCRIPTION: '*© POWERED BY NAWAZTECHX*',
 
     ANTI_DELETE_PATH: 'inbox',
@@ -62,8 +62,8 @@ const config = {
 
     BOT_NAME: '🄽🄰🅆🄰🅉 🄼🄳',
     OWNER_NAME: 'ᏁᎪᎳᎪᏃ',
-    OWNER_NUMBER: '923161483125',
-    DEV: '923161483125',
+    OWNER_NUMBER: '923067103522',
+    DEV: '923067103522',
 
     IK_IMAGE_PATH: './lib/bot.png',
     BOT_IMAGE: 'https://files.catbox.moe/an67z4.png',
@@ -74,7 +74,7 @@ const config = {
     MENTION_REPLY: 'false',
 
     SUDO: [
-        "923161483125@s.whatsapp.net"
+        "923067103522@s.whatsapp.net"
     ],
 
     DEFAULT_SETTINGS: {
@@ -115,10 +115,10 @@ const config = {
 
         REJECT_MSG: '*Call Rejected power by Nawaz MD 📵*',
 
-        VERSION: '3.0.0 Bᴇᴛᴀ',
+        VERSION: '4.0.0 Bᴇᴛᴀ',
         OWNER_NAME: 'ᏁᎪᎳᎪᏃ',
-        OWNER_NUMBER: '923161483125',
-        DEV: '923161483125',
+        OWNER_NUMBER: '923067103522',
+        DEV: '923067103522',
         DESCRIPTION: '*© POWER BY NawazTechX *',
         STICKER_NAME: 'NAWAZ-MD',
         MODE: 'public',
@@ -134,7 +134,7 @@ const config = {
         BANNED: [],
 
         SUDO: [
-            "923161483125@s.whatsapp.net"
+            "923067103522@s.whatsapp.net"
         ]
     }
 };
