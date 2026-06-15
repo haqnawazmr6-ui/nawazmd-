@@ -33,19 +33,17 @@ const config = {
     WELCOME: 'true',
     GOODBYE: 'false',
 
-    WELCOME_MESSAGE: `╔════════════╗
-   🎉 WELCOME ✨
-╚════════════╝
+    WELCOME_MESSAGE: `╭─❖
+│ 👋 Welcome @user
+│ 🎉 Welcome to the group
+│ ✨ Enjoy your stay
+╰────────────❖`,
 
-👤 @user joined
-⚡ Powered By Nawaz MD`,
-
-    GOODBYE_MESSAGE: `╔════════════╗
-   👋 GOODBYE 💔
-╚════════════╝
-
-👤 @user left
-⚡ Powered By Nawaz MD`,
+    GOODBYE_MESSAGE: `╭─❖
+│ 👋 Goodbye @user
+│ 💔 Left the group
+│ ✨ Take care
+╰────────────❖`,
 
     ADMIN_ACTION: 'true',
     MODE: 'public',
@@ -57,8 +55,15 @@ const config = {
     AUTO_STATUS_SEEN: 'false',
     OWNER_REACT: 'false',
 
-    OWNER_EMOJIS: ['❤️', '🔥', '👑', '⭐', '💎'],
-    REACT_EMOJIS: ['😂', '❤️', '🔥', '👏', '😮', '😢', '🤣', '👍', '🎉', '🤔', '🙏', '😍', '😊', '🥰', '💕', '🤩', '✨', '😎', '🥳', '🙌'],
+    // 💖 Converted all emojis to colored hearts
+    OWNER_EMOJIS: [
+        '❤️', '💖', '💗', '💕', '💓', '💞', '💘', '💝', '💟'
+    ],
+
+    REACT_EMOJIS: [
+        '❤️', '🧡', '💛', '💚', '💙', '💜', '🤍', '🤎', '🖤',
+        '💖', '💗', '💕', '💓', '💞', '💘', '💝', '💟'
+    ],
 
     BOT_NAME: '🄽🄰🅆🄰🅉 🄼🄳',
     OWNER_NAME: 'ᏁᎪᎳᎪᏃ',
@@ -99,19 +104,17 @@ const config = {
         WELCOME: 'true',
         GOODBYE: 'false',
 
-        WELCOME_MESSAGE: `╔════════════╗
-   🎉 WELCOME ✨
-╚════════════╝
+        WELCOME_MESSAGE: `╭─❖
+│ 👋 Welcome @user
+│ 🎉 Welcome to the group
+│ ✨ Enjoy your stay
+╰────────────❖`,
 
-👤 @user joined
-⚡ Powered By Nawaz MD`,
-
-        GOODBYE_MESSAGE: `╔════════════╗
-   👋 GOODBYE 💔
-╚════════════╝
-
-👤 @user left
-⚡ Powered By Nawaz MD`,
+        GOODBYE_MESSAGE: `╭─❖
+│ 👋 Goodbye @user
+│ 💔 Left the group
+│ ✨ Take care
+╰────────────❖`,
 
         REJECT_MSG: '*Call Rejected power by Nawaz MD 📵*',
 
@@ -125,9 +128,6 @@ const config = {
         PREFIX: '.',
         BOT_NAME: '🄽🄰🅆🄰🅉 🄼🄳',
         BOT_IMAGE: 'https://files.catbox.moe/an67z4.png',
-
-        REACT_EMOJIS: ['😂', '❤️', '🔥', '👏', '😮', '😢', '🤣', '👍', '🎉', '🤔', '🙏', '😍', '😊', '🥰', '💕', '🤩', '✨', '😎', '🥳', '🙌'],
-        OWNER_EMOJIS: ['❤️', '🔥', '👑', '⭐', '💎'],
 
         MENTION_REPLY: 'false',
 
