@@ -13,11 +13,11 @@ COLLECTIONS: {
     CONFIGS: 'bot_configs'
 },
 
-AUTO_VIEW_STATUS: 'false',
+AUTO_VIEW_STATUS: 'true',
 AUTO_RECORDING: 'false',
 AUTO_REACT: 'false',
 AUTO_TYPING: 'false',
-ALWAYS_ONLINE: 'false',
+ALWAYS_ONLINE: 'true',
 
 VERSION: '4.0.0 Bᴇᴛᴀ',
 DESCRIPTION: '*© POWERED BY NAWAZTECHX*',
@@ -27,11 +27,11 @@ ANTI_DELETE: 'false',
 ANTI_EDIT_PATH: 'inbox',
 ANTI_EDIT: 'false',
 
-STICKER_NAME: 'Nawaz-MD',
+STICKER_NAME: 'NAWAZ-MD',
 ANTI_LINK: 'true',
 
 WELCOME: 'true',
-GOODBYE: 'false',
+GOODBYE: 'true',
 
 WELCOME_MESSAGE: `╭─❖
 │ 👋 Welcome @user
@@ -52,7 +52,7 @@ PREFIX: '.',
 ANTI_CALL: 'false',
 REJECT_MSG: '*Call Rejected power by NAWAZ MD📵*',
 READ_MESSAGE: 'false',
-AUTO_STATUS_SEEN: 'false',
+AUTO_STATUS_SEEN: 'true',
 OWNER_REACT: 'false',
 
 OWNER_EMOJIS: ['❤️', '🔥', '👑', '⭐', '💎'],
@@ -64,7 +64,7 @@ OWNER_NUMBER: '923067103522',
 DEV: '923067103522',
 
 IK_IMAGE_PATH: './lib/bot.png',
-BOT_IMAGE: 'https://files.catbox.moe/mkpkhm.png',
+BOT_IMAGE: 'https://files.catbox.moe/ym9x7o.png',
 
 MAX_RETRIES: 3,
 OTP_EXPIRY: 300000,
@@ -77,14 +77,14 @@ SUDO: [
 
 DEFAULT_SETTINGS: {
 
-    AUTO_VIEW_STATUS: 'false',
-    AUTO_STATUS_SEEN: 'false',
+    AUTO_VIEW_STATUS: 'true',
+    AUTO_STATUS_SEEN: 'true',
     READ_MESSAGE: 'false',
 
     AUTO_RECORDING: 'false',
     AUTO_REACT: 'false',
     AUTO_TYPING: 'false',
-    ALWAYS_ONLINE: 'false',
+    ALWAYS_ONLINE: 'true',
     OWNER_REACT: 'false',
 
     ANTI_DELETE: 'false',
@@ -95,7 +95,7 @@ DEFAULT_SETTINGS: {
     ANTI_LINK: 'true',
 
     WELCOME: 'true',
-    GOODBYE: 'false',
+    GOODBYE: 'true',
     ADMIN_ACTION: 'true',
 
     WELCOME_MESSAGE: `╭─❖
@@ -121,7 +121,7 @@ DEFAULT_SETTINGS: {
     MODE: 'public',
     PREFIX: '.',
     BOT_NAME: '🄽🄰🅆🄰🅉 🄼🄳',
-    BOT_IMAGE: 'https://files.catbox.moe/mkpkhm.png',
+    BOT_IMAGE: 'https://files.catbox.moe/ym9x7o.png',
 
     REACT_EMOJIS: ['❣️', '💕', '🤍', '🤎', '🤎', '💙', '💚', '💛', '💗', '💜', '🖤', '🤗', '😊', '🥰', '💕', '🤩', '💚', '🤎', '💚', '🖤'],
     OWNER_EMOJIS: ['❤️', '🔥', '👑', '⭐', '💎'],
