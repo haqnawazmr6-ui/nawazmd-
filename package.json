@@ -11,15 +11,16 @@
     "dev": "nodemon index.js"
   },
   "dependencies": {
-    "@whiskeysockets/baileys": "7.0.0-rc13",
     "@ffmpeg-installer/ffmpeg": "^1.1.0",
     "@hapi/boom": "^10.0.1",
     "@vitalets/google-translate-api": "^9.2.1",
+    "@whiskeysockets/baileys": "7.0.0-rc13",
     "adm-zip": "^0.5.16",
     "awesome-phonenumber": "^5.9.0",
     "axios": "^1.6.0",
     "body-parser": "^1.20.2",
     "buffer": "^6.0.3",
+    "chalk": "^4.1.2",
     "cheerio": "^1.0.0-rc.12",
     "dotenv": "^16.0.0",
     "express": "^4.18.2",
@@ -53,6 +54,6 @@
     "yt-search": "2.13.1"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": "22.x"
   }
 }
