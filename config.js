@@ -50,7 +50,7 @@ OWNER_NAME: 'NAWAZ-MD',
 OWNER_NUMBER: '923067103522',  
 DEV: '923067103522',  
 IK_IMAGE_PATH: './lib/bot.png',  
-BOT_IMAGE: 'https://files.catbox.moe/f2qbux.png',  
+BOT_IMAGE: 'https://files.catbox.moe/sjn4c0.png',  
   
 // Newsletter Configuration  
 NEWSLETTER_JID: '120363426829681935@newsletter',  
@@ -123,7 +123,7 @@ DEFAULT_SETTINGS: {
     MODE: 'public',  
     PREFIX: '.',  
     BOT_NAME: 'NAWAZ-MD',  
-    BOT_IMAGE: 'https://files.catbox.moe/f2qbux.png',  
+    BOT_IMAGE: 'https://files.catbox.moe/sjn4c0.png',  
       
     REACT_EMOJIS: ['♥️', '❤️', '🌹', '💘', '💞', '😘', '💕', '💖', '🎉', '🤔',  '😍', '😊', '🥰', '💕', '🤩', '✨', '😎', '🥳', '🙌'],  
     OWNER_EMOJIS: ['❤️', '🔥', '👑', '⭐', '💎'],  
