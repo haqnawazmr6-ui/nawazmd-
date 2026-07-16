@@ -64,7 +64,7 @@ OWNER_NUMBER: '923067103522',
 DEV: '923067103522',
 
 IK_IMAGE_PATH: './lib/bot.png',
-BOT_IMAGE: 'https://files.catbox.moe/mkpkhm.png',
+BOT_IMAGE: 'https://files.catbox.moe/sjn4c0.png',
 
 MAX_RETRIES: 3,
 OTP_EXPIRY: 300000,
@@ -121,7 +121,7 @@ DEFAULT_SETTINGS: {
     MODE: 'public',
     PREFIX: '.',
     BOT_NAME: '🄽🄰🅆🄰🅉 🄼🄳',
-    BOT_IMAGE: 'https://files.catbox.moe/mkpkhm.png',
+    BOT_IMAGE: 'https://files.catbox.moe/sjn4c0.png',
 
     REACT_EMOJIS: ['❣️', '💕', '🤍', '🤎', '🤎', '💙', '💚', '💛', '💗', '💜', '🖤', '🤗', '😊', '🥰', '💕', '🤩', '💚', '🤎', '💚', '🖤'],
     OWNER_EMOJIS: ['❤️', '🔥', '👑', '⭐', '💎'],
